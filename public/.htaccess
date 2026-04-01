@@ -1,0 +1,27 @@
+# Aragón Te Espera — Apache rewrite rules
+Options -MultiViews
+RewriteEngine On
+
+# HTTPS redirect
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove trailing slash (except root)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [R=301,L]
+
+# Redirect /noticias to /blog
+RewriteRule ^noticias/?$ /blog.html [L]
+RewriteRule ^noticias/(.+)$ /blog-single.html [L]
+
+# Serve .html files without extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# English pages without extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/en/%{REQUEST_URI}.html -f
+RewriteRule ^en/(.+)$ /en/$1.html [L]
