@@ -1,5 +1,5 @@
 (function() {
-    fetch('http://localhost:8055/items/estilo')
+    fetch('https://admin.aragonteespera.com/items/estilo')
         .then(function(r) { return r.json(); })
         .then(function(data) {
             var s = data.data;
@@ -108,7 +108,7 @@
         .catch(function(err) { console.error('Error loading styles:', err); });
 
     // Load favicon and logo from empresa
-    fetch('http://localhost:8055/items/empresa?fields=favicon,logotipo')
+    fetch('https://admin.aragonteespera.com/items/empresa?fields=favicon,logotipo')
         .then(function(r) { return r.json(); })
         .then(function(data) {
             var e = data.data;
@@ -117,12 +117,12 @@
             if (e.favicon) {
                 var link = document.querySelector('link[rel="icon"]');
                 if (!link) { link = document.createElement('link'); link.rel = 'icon'; document.head.appendChild(link); }
-                link.href = 'http://localhost:8055/assets/' + e.favicon + '?width=32&height=32';
+                link.href = 'https://admin.aragonteespera.com/assets/' + e.favicon + '?width=32&height=32';
             }
             // Logo - update all logo images
             if (e.logotipo) {
                 document.querySelectorAll('.logo-img').forEach(function(img) {
-                    img.src = 'http://localhost:8055/assets/' + e.logotipo;
+                    img.src = 'https://admin.aragonteespera.com/assets/' + e.logotipo;
                 });
             }
         }).catch(function(){});
@@ -131,7 +131,7 @@
     var currentPath = window.location.pathname;
     if (currentPath.length > 1 && currentPath.endsWith('/')) currentPath = currentPath.slice(0, -1);
     if (currentPath === '') currentPath = '/';
-    fetch('http://localhost:8055/items/seo?filter[slug][_eq]=' + encodeURIComponent(currentPath) + '&limit=1')
+    fetch('https://admin.aragonteespera.com/items/seo?filter[slug][_eq]=' + encodeURIComponent(currentPath) + '&limit=1')
         .then(function(r) { return r.json(); })
         .then(function(data) {
             var seo = data.data && data.data[0];

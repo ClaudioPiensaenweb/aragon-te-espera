@@ -99,7 +99,7 @@
     <div class="dashboard">
         <div class="dashboard-header">
             <h1>SEO Dashboard</h1>
-            <a href="http://localhost:8055/admin/content/seo">← Volver a Directus</a>
+            <a href="https://admin.aragonteespera.com/admin/content/seo">← Volver a Directus</a>
         </div>
         <div class="stats">
             <div class="stat-card stat-total"><div class="stat-value" id="stat-total">-</div><div class="stat-label">Total páginas</div></div>
@@ -110,7 +110,7 @@
         <div id="content"><div class="loading">Cargando datos SEO...</div></div>
     </div>
 <script>
-var DIRECTUS = 'http://localhost:8055';
+var DIRECTUS = 'https://admin.aragonteespera.com';
 var TOKEN = 'aragon-admin-token';
 var allItems = [];
 
@@ -391,7 +391,7 @@ fetch(DIRECTUS+'/items/seo?fields=*&sort=language,page_type,sort&limit=200')
         document.querySelectorAll('.td-heading').forEach(function(td) {
             var slug = td.dataset.slug;
             if (!slug) { td.innerHTML = ind({s:'warn',t:'-'}); return; }
-            fetch('http://localhost:3000'+slug).then(function(r){return r.text()}).then(function(html) {
+            fetch('https://aragonteespera.com'+slug).then(function(r){return r.text()}).then(function(html) {
                 var doc = new DOMParser().parseFromString(html, 'text/html');
                 var levels = [];
                 doc.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(function(h){levels.push(parseInt(h.tagName[1]))});
@@ -426,7 +426,7 @@ fetch(DIRECTUS+'/items/seo?fields=*&sort=language,page_type,sort&limit=200')
 
 // Sync robots.txt + sitemap.xml silently
 function syncRobots() {
-    fetch('http://localhost:4000/sync', {method:'POST'}).catch(function(){});
+    fetch('https://aragonteespera.com/sync', {method:'POST'}).catch(function(){});
 }
 </script>
 </body>
