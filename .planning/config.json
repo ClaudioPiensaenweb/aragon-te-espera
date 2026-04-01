@@ -9,7 +9,8 @@
     "staging_dominio": null,
     "estrategia": "A+D",
     "ci_configured": true,
-    "auth_method": "password",
+    "auth_method": "ssh_key",
+    "admin_url": "https://admin.aragonteespera.com",
     "entornos": {
       "produccion": { "rama": "main", "auto": true }
     },
@@ -20,7 +21,7 @@
       },
       "directus": {
         "tipo": "nodejs",
-        "puerto": 8055,
+        "puerto": 8056,
         "manager": "pm2",
         "destino": "/var/www/vhosts/aragonteespera.com/directus/"
       }
