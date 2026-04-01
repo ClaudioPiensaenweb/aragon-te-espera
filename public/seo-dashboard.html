@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Dashboard - Aragón te espera</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f5f6f7; color: #2F3B4A; font-size: 14px; }
+        .dashboard { max-width: 1600px; margin: 0 auto; padding: 30px 20px; }
+        .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; }
+        .dashboard-header h1 { font-size: 24px; color: #001630; }
+        .dashboard-header a { color: #111; text-decoration: none; font-weight: 600; font-size: 13px; }
+        .dashboard-header a:hover { text-decoration: underline; }
+        .stats { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+        .stat-card { background: #fff; border-radius: 10px; padding: 20px 25px; flex: 1; min-width: 150px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .stat-card .stat-value { font-size: 32px; font-weight: 700; }
+        .stat-card .stat-label { font-size: 12px; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-good .stat-value { color: #11b76b; }
+        .stat-warn .stat-value { color: #ffa100; }
+        .stat-bad .stat-value { color: #fa4362; }
+        .stat-total .stat-value { color: #001630; }
+        .section-title { font-size: 16px; font-weight: 700; color: #001630; margin: 30px 0 15px; padding-bottom: 8px; border-bottom: 2px solid #eee; }
+        .section-title span { font-weight: 400; color: #888; font-size: 13px; margin-left: 8px; }
+
+        .seo-table { width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); margin-bottom: 30px; table-layout: fixed; }
+        .seo-table th { background: #001630; color: #fff; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 12px 10px; text-align: left; white-space: nowrap; overflow: hidden; }
+        .seo-table td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
+        .seo-table tr:last-child td { border-bottom: none; }
+        .seo-table tr:hover td { background: #fafbfc; }
+        .col-lang { width: 50px; } .col-page { width: 14%; } .col-url { width: 12%; }
+        .col-kw { width: 11%; } .col-mt { width: 12%; } .col-md { width: 12%; }
+        .col-kwt { width: 6%; } .col-kwd { width: 6%; } .col-kwu { width: 6%; }
+        .col-h { width: 6%; }
+        .col-idx { width: 50px; }
+        .col-score { width: 100px; }
+
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+        .badge-es { background: #001630; color: #fff; }
+        .badge-en { background: #0081CE; color: #fff; }
+
+        .ind { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 500; cursor: default; }
+        .ind::before { content: ''; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .ind-good::before { background: #11b76b; } .ind-good { color: #11b76b; }
+        .ind-warn::before { background: #ffa100; } .ind-warn { color: #ffa100; }
+        .ind-bad::before { background: #fa4362; } .ind-bad { color: #fa4362; }
+
+        .score-wrap { display: flex; align-items: center; gap: 6px; }
+        .score-bar { width: 100%; height: 4px; background: #eee; border-radius: 2px; overflow: hidden; flex: 1; }
+        .score-bar-fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
+        .score-good .score-bar-fill { background: #11b76b; }
+        .score-warn .score-bar-fill { background: #ffa100; }
+        .score-bad .score-bar-fill { background: #fa4362; }
+        .score-num { font-weight: 700; font-size: 11px; white-space: nowrap; min-width: 22px; text-align: right; }
+        .score-num-good { color: #11b76b; }
+        .score-num-warn { color: #ffa100; }
+        .score-num-bad { color: #fa4362; }
+
+        /* Editable cells */
+        .editable { cursor: pointer; position: relative; }
+        .editable:hover { background: #f0f4ff !important; }
+        .editable input, .editable textarea {
+            width: 100%; border: 2px solid #FF6800; border-radius: 4px; padding: 4px 6px;
+            font-family: inherit; font-size: 12px; outline: none; background: #fff;
+        }
+        .editable textarea { resize: vertical; min-height: 60px; white-space: pre-wrap; }
+        .edit-popup { position: absolute; top: 0; left: 0; z-index: 50; min-width: 300px; background: #fff; border: 2px solid #FF6800; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); padding: 8px; }
+        .edit-popup input, .edit-popup textarea { width: 100%; border: none; outline: none; font-family: inherit; font-size: 12px; padding: 4px; resize: vertical; }
+        .edit-popup textarea { min-height: 80px; white-space: pre-wrap; }
+        .editable .edit-hint { display: none; position: absolute; top: 2px; right: 4px; font-size: 10px; color: #bbb; }
+        .editable:hover .edit-hint { display: block; }
+        .save-flash { animation: flash 0.5s; }
+        @keyframes flash { 0%{background:#e8ffe8} 100%{background:transparent} }
+
+        /* Noindex row styling */
+        tr.row-noindex td { background: #f0f0f0; opacity: 0.55; }
+        tr.row-noindex:hover td { opacity: 0.75; }
+        .idx-toggle { cursor: pointer; font-size: 14px; text-align: center; display: block; user-select: none; }
+
+        .loading { text-align: center; padding: 60px; color: #888; }
+        .table-header { display: flex; justify-content: space-between; align-items: center; margin: 30px 0 15px; padding-bottom: 8px; border-bottom: 2px solid #eee; }
+        .table-header-title { font-size: 16px; font-weight: 700; color: #001630; }
+        .table-header-title span { font-weight: 400; color: #888; font-size: 13px; margin-left: 8px; }
+        .lang-filter { display: flex; gap: 0; border-radius: 6px; overflow: hidden; border: 1px solid #ddd; }
+        .lang-filter button { background: #fff; border: none; padding: 5px 14px; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; color: #888; transition: all 0.2s; }
+        .lang-filter button.active { background: #001630; color: #fff; }
+        .lang-filter button:hover:not(.active) { background: #f0f0f0; }
+        @media (max-width: 1200px) { .seo-table { display: block; overflow-x: auto; } }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h1>SEO Dashboard</h1>
+            <a href="http://localhost:8055/admin/content/seo">← Volver a Directus</a>
+        </div>
+        <div class="stats">
+            <div class="stat-card stat-total"><div class="stat-value" id="stat-total">-</div><div class="stat-label">Total páginas</div></div>
+            <div class="stat-card stat-good"><div class="stat-value" id="stat-good">-</div><div class="stat-label">Buenas (≥80)</div></div>
+            <div class="stat-card stat-warn"><div class="stat-value" id="stat-warn">-</div><div class="stat-label">Mejorables (50-79)</div></div>
+            <div class="stat-card stat-bad"><div class="stat-value" id="stat-bad">-</div><div class="stat-label">Deficientes (&lt;50)</div></div>
+        </div>
+        <div id="content"><div class="loading">Cargando datos SEO...</div></div>
+    </div>
+<script>
+var DIRECTUS = 'http://localhost:8055';
+var TOKEN = 'aragon-admin-token';
+var allItems = [];
+
+// Helper: get seo_data from item (plugin JSON field)
+function seo(item) { return item.seo_data || {}; }
+
+function analyze(item) {
+    var s = seo(item);
+    var kw = (s.focus_keyphrase || '').toLowerCase().trim();
+    var mt = s.title || '';
+    var md = s.meta_description || '';
+    var sl = item.slug || '';
+    var c = {};
+    if (!mt) c.meta_title = {s:'bad',t:'Vacío'};
+    else if (mt.length<30) c.meta_title = {s:'bad',t:'Corto ('+mt.length+'/60)'};
+    else if (mt.length>60) c.meta_title = {s:'warn',t:'Largo ('+mt.length+'/60)'};
+    else c.meta_title = {s:'good',t:'OK ('+mt.length+'/60)'};
+    if (!md) c.meta_desc = {s:'bad',t:'Vacía'};
+    else if (md.length<120) c.meta_desc = {s:'warn',t:'Corta ('+md.length+'/160)'};
+    else if (md.length>160) c.meta_desc = {s:'warn',t:'Larga ('+md.length+'/160)'};
+    else c.meta_desc = {s:'good',t:'OK ('+md.length+'/160)'};
+    if (!kw) { c.keyword={s:'bad',t:'Sin definir'}; c.kw_title={s:'bad',t:'-'}; c.kw_desc={s:'bad',t:'-'}; c.kw_url={s:'bad',t:'-'}; }
+    else {
+        c.keyword = {s:'good',t:kw};
+        var kwNorm = kw.replace(/-/g,' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+        var mtNorm = mt.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+        var mdNorm = md.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+        var kwSlug = kw.replace(/\s+/g,'-');
+        c.kw_title = (mtNorm.includes(kwNorm)||mt.toLowerCase().includes(kw))?{s:'good',t:'Sí'}:{s:'bad',t:'No'};
+        c.kw_desc = (mdNorm.includes(kwNorm)||md.toLowerCase().includes(kw))?{s:'good',t:'Sí'}:{s:'bad',t:'No'};
+        c.kw_url = (sl==='/'||sl==='/en'||sl.toLowerCase().includes(kwSlug)||sl.toLowerCase().includes(kw))?{s:'good',t:'Sí'}:{s:'bad',t:'No'};
+    }
+    var all = Object.values(c);
+    var good = all.filter(function(x){return x.s==='good'}).length;
+    return {checks:c, score:Math.round((good/all.length)*100)};
+}
+
+function ind(check) { return '<span class="ind ind-'+check.s+'">'+check.t+'</span>'; }
+function indText(check, text) {
+    var display = text || check.t;
+    return '<span class="ind ind-'+check.s+'" title="'+check.t+'">'+display+'</span>';
+}
+
+function scoreHtml(score) {
+    var cls = score>=80?'good':score>=50?'warn':'bad';
+    return '<div class="score-wrap score-'+cls+'"><div class="score-bar"><div class="score-bar-fill" style="width:'+score+'%"></div></div><span class="score-num score-num-'+cls+'">'+score+'</span></div>';
+}
+
+// Save a seo_data sub-field by patching the whole JSON
+function saveSeoField(id, seoKey, value, cell) {
+    var item = allItems.find(function(i){return i.id===id});
+    if (!item) return;
+    var updated = Object.assign({}, seo(item));
+    updated[seoKey] = value;
+    fetch(DIRECTUS+'/items/seo/'+id, {
+        method:'PATCH',
+        headers:{'Authorization':'Bearer '+TOKEN,'Content-Type':'application/json'},
+        body:JSON.stringify({ seo_data: updated })
+    }).then(function(r){
+        if (r.ok) {
+            item.seo_data = updated;
+            reRenderRow(item, cell);
+            updateStats();
+        }
+    });
+}
+
+// Save a top-level field (page_title, slug)
+function saveTopField(id, field, value, cell) {
+    var body = {}; body[field] = value;
+    fetch(DIRECTUS+'/items/seo/'+id, {
+        method:'PATCH',
+        headers:{'Authorization':'Bearer '+TOKEN,'Content-Type':'application/json'},
+        body:JSON.stringify(body)
+    }).then(function(r){
+        if (r.ok) {
+            var item = allItems.find(function(i){return i.id===id});
+            if (item) item[field] = value;
+            reRenderRow(item, cell);
+        }
+    });
+}
+
+function reRenderRow(item, cell) {
+    var tr = cell.closest('tr');
+    var a = analyze(item);
+    var c = a.checks;
+    var s = seo(item);
+    var cells = tr.querySelectorAll('td');
+    cells[3].innerHTML = editableSeoCell(item.id,'focus_keyphrase',s.focus_keyphrase||'',ind(c.keyword));
+    cells[4].innerHTML = editableSeoCell(item.id,'title',s.title||'',indText(c.meta_title,s.title||'<em style="color:#ccc">—</em>'));
+    cells[5].innerHTML = editableSeoCell(item.id,'meta_description',s.meta_description||'',indText(c.meta_desc,s.meta_description||'<em style="color:#ccc">—</em>'),'textarea');
+    cells[6].innerHTML = ind(c.kw_title);
+    cells[7].innerHTML = ind(c.kw_desc);
+    cells[8].innerHTML = ind(c.kw_url);
+    cells[11].innerHTML = scoreHtml(a.score);
+    cell.classList.add('save-flash');
+    setTimeout(function(){cell.classList.remove('save-flash')},600);
+}
+
+function editableSeoCell(id, seoKey, value, displayHtml, type) {
+    var escaped = (value||'').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+    var t = type || 'input';
+    return '<div class="editable" data-id="'+id+'" data-seo-key="'+seoKey+'" data-type="'+t+'">' +
+        '<span class="edit-hint">✎</span>' +
+        '<span class="cell-display" title="'+escaped+'">'+displayHtml+'</span>' +
+        '</div>';
+}
+
+function editableTopCell(id, field, value) {
+    var escaped = (value||'').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+    return '<div class="editable" data-id="'+id+'" data-top-field="'+field+'" data-type="input">' +
+        '<span class="edit-hint">✎</span>' +
+        '<span class="cell-display" title="'+escaped+'">'+(value||'<em style="color:#ccc">—</em>')+'</span>' +
+        '</div>';
+}
+
+function updateStats() {
+    var allScores = allItems.map(function(i){return analyze(i).score});
+    document.getElementById('stat-total').textContent = allItems.length;
+    document.getElementById('stat-good').textContent = allScores.filter(function(s){return s>=80}).length;
+    document.getElementById('stat-warn').textContent = allScores.filter(function(s){return s>=50&&s<80}).length;
+    document.getElementById('stat-bad').textContent = allScores.filter(function(s){return s<50}).length;
+}
+
+function renderTable(items, title, subtitle, tableId) {
+    var html = '<div class="table-header"><div class="table-header-title">'+title+'<span>'+subtitle+'</span></div>';
+    html += '<div class="lang-filter" data-table="'+tableId+'">';
+    html += '<button class="active" data-lang="all">Todos</button>';
+    html += '<button data-lang="es">ES</button>';
+    html += '<button data-lang="en">EN</button>';
+    html += '</div></div>';
+    html += '<table class="seo-table" id="'+tableId+'"><thead><tr>';
+    html += '<th class="col-lang">Idioma</th><th class="col-page">Página</th><th class="col-url">URL</th><th class="col-kw">Keyword</th>';
+    html += '<th class="col-mt">Meta título</th><th class="col-md">Meta desc.</th>';
+    html += '<th class="col-kwt">KW en tít.</th><th class="col-kwd">KW en desc.</th><th class="col-kwu">KW en URL</th>';
+    html += '<th class="col-h">Encab.</th>';
+    html += '<th class="col-idx">Index</th>';
+    html += '<th class="col-score">Score</th>';
+    html += '</tr></thead><tbody>';
+    items.forEach(function(item) {
+        var a = analyze(item);
+        var c = a.checks;
+        var s = seo(item);
+        var isNoindex = s.no_index === true;
+        html += '<tr data-row-id="'+item.id+'" data-lang="'+item.language+'"'+(isNoindex?' class="row-noindex"':'')+'>';
+        html += '<td><span class="badge badge-'+item.language+'">'+item.language.toUpperCase()+'</span></td>';
+        html += '<td>'+editableTopCell(item.id,'page_title',item.page_title)+'</td>';
+        html += '<td>'+editableTopCell(item.id,'slug',item.slug)+'</td>';
+        html += '<td>'+editableSeoCell(item.id,'focus_keyphrase',s.focus_keyphrase||'',ind(c.keyword))+'</td>';
+        html += '<td>'+editableSeoCell(item.id,'title',s.title||'',indText(c.meta_title, s.title||'<em style="color:#ccc">—</em>'))+'</td>';
+        html += '<td>'+editableSeoCell(item.id,'meta_description',s.meta_description||'',indText(c.meta_desc, s.meta_description||'<em style="color:#ccc">—</em>'),'textarea')+'</td>';
+        html += '<td>'+ind(c.kw_title)+'</td>';
+        html += '<td>'+ind(c.kw_desc)+'</td>';
+        html += '<td>'+ind(c.kw_url)+'</td>';
+        html += '<td class="td-heading" data-slug="'+item.slug+'" data-id="'+item.id+'"><span class="ind ind-warn">...</span></td>';
+        html += '<td><span class="idx-toggle" data-id="'+item.id+'" title="'+(isNoindex?'No indexable':'Indexable')+'">'+(isNoindex?'🚫':'✅')+'</span></td>';
+        html += '<td>'+scoreHtml(a.score)+'</td>';
+        html += '</tr>';
+    });
+    html += '</tbody></table>';
+    return html;
+}
+
+// Click handler for inline editing
+document.addEventListener('click', function(e) {
+    var editable = e.target.closest('.editable');
+    if (!editable) return;
+    if (editable.closest('td').querySelector('.edit-popup')) return;
+
+    var id = parseInt(editable.dataset.id);
+    var seoKey = editable.dataset.seoKey || null;
+    var topField = editable.dataset.topField || null;
+    var type = editable.dataset.type || 'input';
+    var item = allItems.find(function(i){return i.id===id});
+    var currentValue = '';
+    if (seoKey) currentValue = (seo(item)[seoKey] || '');
+    else if (topField) currentValue = (item[topField] || '');
+    var td = editable.closest('td');
+    var hint = editable.querySelector('.edit-hint');
+    if (hint) hint.style.display = 'none';
+
+    var popup = document.createElement('div');
+    popup.className = 'edit-popup';
+    if (type === 'textarea') {
+        popup.innerHTML = '<textarea>'+currentValue.replace(/</g,'&lt;')+'</textarea>';
+    } else {
+        popup.innerHTML = '<input type="text" value="'+currentValue.replace(/"/g,'&quot;')+'">';
+    }
+    td.style.position = 'relative';
+    td.style.overflow = 'visible';
+    td.appendChild(popup);
+
+    var input = popup.querySelector('input, textarea');
+    input.focus();
+    input.select();
+
+    function finish() {
+        if (popup.parentNode) popup.parentNode.removeChild(popup);
+        td.style.overflow = '';
+        var newVal = input.value;
+        if (newVal !== currentValue) {
+            if (seoKey) saveSeoField(id, seoKey, newVal, td);
+            else if (topField) saveTopField(id, topField, newVal, td);
+        } else {
+            if (hint) hint.style.display = '';
+        }
+    }
+
+    input.addEventListener('blur', finish);
+    input.addEventListener('keydown', function(ev) {
+        if (ev.key === 'Enter' && type !== 'textarea') { ev.preventDefault(); input.blur(); }
+        if (ev.key === 'Escape') { input.value = currentValue; input.blur(); }
+    });
+});
+
+// Load data
+fetch(DIRECTUS+'/items/seo?fields=*&sort=language,page_type,sort&limit=200')
+    .then(function(r){return r.json()})
+    .then(function(data) {
+        allItems = data.data || [];
+        // Sort: by language, then noindex last, then sort
+        allItems.sort(function(a, b) {
+            if (a.language !== b.language) return a.language < b.language ? -1 : 1;
+            if (a.page_type !== b.page_type) return a.page_type < b.page_type ? -1 : 1;
+            var aIdx = seo(a).no_index ? 1 : 0;
+            var bIdx = seo(b).no_index ? 1 : 0;
+            if (aIdx !== bIdx) return aIdx - bIdx;
+            return (a.sort || 0) - (b.sort || 0);
+        });
+        var typeLabels = { page: 'Páginas', post: 'Noticias (Blog)' };
+        var typeUnits = { page: 'páginas', post: 'entradas' };
+        var types = [];
+        allItems.forEach(function(i) {
+            if (types.indexOf(i.page_type) === -1) types.push(i.page_type);
+        });
+        updateStats();
+        var html = '';
+        types.forEach(function(type) {
+            var items = allItems.filter(function(i){return i.page_type===type});
+            var label = typeLabels[type] || type.charAt(0).toUpperCase() + type.slice(1);
+            var unit = typeUnits[type] || 'elementos';
+            html += renderTable(items, label, items.length+' '+unit, 'table-'+type);
+        });
+        document.getElementById('content').innerHTML = html;
+
+        // Index toggle click handler
+        document.querySelectorAll('.idx-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function() {
+                var id = parseInt(this.dataset.id);
+                var item = allItems.find(function(i){return i.id===id});
+                if (!item) return;
+                var s = seo(item);
+                var newNoIndex = !s.no_index;
+                var updated = Object.assign({}, s, { no_index: newNoIndex });
+                var self = this;
+                fetch(DIRECTUS+'/items/seo/'+id, {
+                    method:'PATCH',
+                    headers:{'Authorization':'Bearer '+TOKEN,'Content-Type':'application/json'},
+                    body:JSON.stringify({ seo_data: updated })
+                }).then(function(r){
+                    if (r.ok) {
+                        item.seo_data = updated;
+                        self.textContent = newNoIndex ? '🚫' : '✅';
+                        self.title = newNoIndex ? 'No indexable' : 'Indexable';
+                        var row = self.closest('tr');
+                        if (newNoIndex) row.classList.add('row-noindex');
+                        else row.classList.remove('row-noindex');
+                        syncRobots();
+                    } else {
+                        r.text().then(function(t){ alert('Error: '+t); });
+                    }
+                }).catch(function(err){ alert('Error: '+err.message); });
+            });
+        });
+
+        // Check heading hierarchy
+        document.querySelectorAll('.td-heading').forEach(function(td) {
+            var slug = td.dataset.slug;
+            if (!slug) { td.innerHTML = ind({s:'warn',t:'-'}); return; }
+            fetch('http://localhost:3000'+slug).then(function(r){return r.text()}).then(function(html) {
+                var doc = new DOMParser().parseFromString(html, 'text/html');
+                var levels = [];
+                doc.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(function(h){levels.push(parseInt(h.tagName[1]))});
+                if (!levels.length) { td.innerHTML = ind({s:'warn',t:'Sin H'}); return; }
+                var h1count = levels.filter(function(l){return l===1}).length;
+                var ok = true, issues = [];
+                if (h1count === 0) { ok = false; issues.push('Sin H1'); }
+                else if (h1count > 1) { ok = false; issues.push(h1count+'x H1'); }
+                for (var i = 1; i < levels.length; i++) {
+                    if (levels[i] > levels[i-1]+1) { ok = false; issues.push('Salto H'+levels[i-1]+'→H'+levels[i]); break; }
+                }
+                td.innerHTML = ok ? ind({s:'good',t:'OK'}) : '<span class="ind ind-bad" title="'+issues.join(', ')+'">'+issues[0]+'</span>';
+            }).catch(function(){ td.innerHTML = ind({s:'warn',t:'?'}); });
+        });
+
+        // Language filter
+        document.querySelectorAll('.lang-filter button').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var filter = this.dataset.lang;
+                var table = document.getElementById(this.closest('.lang-filter').dataset.table);
+                this.closest('.lang-filter').querySelectorAll('button').forEach(function(b){b.classList.remove('active')});
+                this.classList.add('active');
+                table.querySelectorAll('tbody tr').forEach(function(row) {
+                    row.style.display = (filter === 'all' || row.dataset.lang === filter) ? '' : 'none';
+                });
+            });
+        });
+    })
+    .catch(function(err) {
+        document.getElementById('content').innerHTML = '<div class="loading">Error: '+err.message+'</div>';
+    });
+
+// Sync robots.txt + sitemap.xml silently
+function syncRobots() {
+    fetch('http://localhost:4000/sync', {method:'POST'}).catch(function(){});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias - Aragón te espera</title>
+    <meta name="description" content="Aragón te espera - Noticias">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700&family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: { 'mh': '479px', 'tb': '768px', 'dk': '992px' },
+                extend: {
+                    colors: {
+                        accent: { warm1: '#FF3E00', warm2: '#FF6800', warm3: '#FFA000', warm4: '#FFCC00', cold1: '#001630', cold2: '#003C64', cold3: '#0081CE', cold4: '#36D1F4' },
+                        title: '#001630', text: '#2F3B4A', primary: '#FF6800'
+                    },
+                    fontFamily: { newsreader: ['"Newsreader"', 'serif'], jakarta: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    borderRadius: { 'base': '7px', 'btn': '50em' }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <script src="/js/dynamic-styles.js"></script>
+    <script src="/js/templates-es.js"></script>
+</head>
+<body class="antialiased interior blog-single">
+
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[100]"></header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="relative z-[10] bg-white">
+        <section class="px-section pt-[140px] pb-[80px] dk:pt-[200px] dk:pb-[120px]">
+            <div class="container-boxed">
+                <div class="grid grid-cols-1 dk:grid-cols-[1fr_350px] gap-[50px] dk:gap-[150px]">
+
+                    <!-- ARTICLE COLUMN -->
+                    <article id="post-article">
+                        <!-- Title -->
+                        <h1 id="post-title" class="titulo-1 mb-[15px]"></h1>
+
+                        <!-- Excerpt -->
+                        <p id="post-excerpt" class="texto-base text-text/70 mb-[30px]"></p>
+
+                        <!-- Meta row: date + share -->
+                        <div class="flex flex-wrap justify-between items-center border-t border-b border-gray-200 py-[15px] mb-[40px] gap-[15px]">
+                            <span id="post-date" class="font-jakarta text-[14px] text-text/60"></span>
+                            <div class="flex items-center gap-[8px]">
+                                <span class="font-jakarta text-[14px] text-text/60">Compartir en:</span>
+                                <a id="share-x" href="#" target="_blank" rel="noopener" class="text-text/50 hover:text-title transition-colors">
+                                    <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                </a>
+                                <a id="share-fb" href="#" target="_blank" rel="noopener" class="text-text/50 hover:text-title transition-colors">
+                                    <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                </a>
+                                <a id="share-wa" href="#" target="_blank" rel="noopener" class="text-text/50 hover:text-title transition-colors">
+                                    <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Featured Image -->
+                        <div id="post-image-wrap" class="w-full rounded-base overflow-hidden mb-[40px] hidden">
+                            <img id="post-image" src="" alt="" class="w-full h-auto object-cover">
+                        </div>
+
+                        <!-- Content (WYSIWYG) -->
+                        <div id="post-content" class="post-content"></div>
+                    </article>
+
+                    <!-- SIDEBAR -->
+                    <aside class="hidden dk:block">
+                        <!-- Lo más visto -->
+                        <div class="mb-[50px]">
+                            <span class="font-jakarta font-bold text-[14px] text-title uppercase tracking-wider mb-[25px] block">Lo más visto</span>
+                            <div id="sidebar-popular" class="flex flex-col gap-[20px]"></div>
+                        </div>
+
+                        <!-- Te puede interesar -->
+                        <div class="mb-[50px]">
+                            <span class="font-jakarta font-bold text-[14px] text-title uppercase tracking-wider mb-[25px] block">Te puede interesar</span>
+                            <div id="sidebar-related" class="flex flex-col gap-[20px]"></div>
+                        </div>
+
+                        <!-- Otras categorías -->
+                        <div>
+                            <span class="font-jakarta font-bold text-[14px] text-title uppercase tracking-wider mb-[25px] block">Otras categorías</span>
+                            <div id="sidebar-categories" class="flex flex-wrap gap-[8px]"></div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer-section" class="relative w-full z-[0] bg-title"></footer>
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+        var DIRECTUS_URL = 'http://localhost:8055';
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            return new Date(dateStr).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+
+        function sidebarCard(post) {
+            var img = post.featured_image
+                ? DIRECTUS_URL + '/assets/' + (post.featured_image.id || post.featured_image) + '?width=200&height=130&fit=cover'
+                : '/img/cabecera-02.jpg';
+            var cats = post.categories
+                ? post.categories.map(function(c) { return c.categories_id ? c.categories_id.name : ''; }).filter(Boolean)
+                : [];
+            return '<a href="/noticias/' + post.slug + '" class="flex gap-[15px] group">' +
+                '<div class="w-[100px] h-[70px] rounded-[5px] overflow-hidden shrink-0">' +
+                    '<img src="' + img + '" alt="' + post.title + '" class="w-full h-full object-cover">' +
+                '</div>' +
+                '<div class="flex flex-col justify-center">' +
+                    (cats.length ? '<span class="font-jakarta text-[11px] text-primary font-bold uppercase">' + cats[0] + '</span>' : '') +
+                    '<span class="font-jakarta text-[14px] font-bold text-title group-hover:text-primary transition-colors leading-[1.3]">' + post.title + '</span>' +
+                '</div>' +
+            '</a>';
+        }
+
+        async function loadPost() {
+            var pathParts = window.location.pathname.split('/').filter(Boolean);
+            var slug = pathParts[pathParts.length - 1];
+            if (!slug) { window.location.href = '/noticias'; return; }
+
+            try {
+                var res = await fetch(DIRECTUS_URL + '/items/posts?fields=*,featured_image.*,categories.categories_id.*&filter[slug][_eq]=' + slug + '&filter[status][_eq]=published&filter[language][_eq]=es&limit=1');
+                var data = await res.json();
+                var post = data.data && data.data[0];
+                if (!post) { document.getElementById('post-title').textContent = 'Artículo no encontrado'; return; }
+
+                // Update language switcher with translated post
+                if (post.translation_group) {
+                    fetch(DIRECTUS_URL + '/items/posts?fields=slug&filter[translation_group][_eq]=' + post.translation_group + '&filter[language][_eq]=en&limit=1')
+                        .then(function(r) { return r.json(); })
+                        .then(function(d) {
+                            var tr = d.data && d.data[0];
+                            if (tr) {
+                                var sw = document.querySelector('[data-lang-switch="en"]');
+                                if (sw) sw.href = '/en/news/' + tr.slug;
+                            }
+                        }).catch(function(){});
+                }
+
+                // Update page title
+                document.title = post.title + ' - Aragón te espera';
+                document.querySelector('meta[name="description"]').setAttribute('content', post.title);
+
+                // Article title
+                document.getElementById('post-title').textContent = post.title;
+
+                // Excerpt (first 200 chars of content stripped of HTML)
+                var tmp = document.createElement('div');
+                tmp.innerHTML = post.content || '';
+                var plainText = tmp.textContent || tmp.innerText || '';
+                document.getElementById('post-excerpt').textContent = plainText.substring(0, 200) + '...';
+
+                // Date
+                document.getElementById('post-date').textContent = formatDate(post.date_published);
+
+                // Share links
+                var pageUrl = encodeURIComponent(window.location.href);
+                var pageTitle = encodeURIComponent(post.title);
+                document.getElementById('share-x').href = 'https://x.com/intent/tweet?url=' + pageUrl + '&text=' + pageTitle;
+                document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + pageUrl;
+                document.getElementById('share-wa').href = 'https://wa.me/?text=' + pageTitle + '%20' + pageUrl;
+
+                // Featured image
+                if (post.featured_image) {
+                    var imgEl = document.getElementById('post-image');
+                    imgEl.src = DIRECTUS_URL + '/assets/' + post.featured_image.id + '?width=1200&fit=cover';
+                    imgEl.alt = post.title;
+                    document.getElementById('post-image-wrap').classList.remove('hidden');
+                }
+
+                // Content
+                document.getElementById('post-content').innerHTML = post.content || '';
+
+                // Load sidebar
+                loadSidebar(post);
+            } catch (err) {
+                console.error('Error loading post:', err);
+                document.getElementById('post-title').textContent = 'Error cargando el artículo';
+            }
+        }
+
+        async function loadSidebar(currentPost) {
+            // Popular posts (latest 2 excluding current)
+            try {
+                var res = await fetch(DIRECTUS_URL + '/items/posts?fields=*,featured_image.*,categories.categories_id.*&sort=-date_published&filter[status][_eq]=published&filter[language][_eq]=es&filter[id][_neq]=' + currentPost.id + '&limit=2');
+                var data = await res.json();
+                var container = document.getElementById('sidebar-popular');
+                (data.data || []).forEach(function(p) { container.insertAdjacentHTML('beforeend', sidebarCard(p)); });
+            } catch(e) {}
+
+            // Related posts (latest 2 different from popular, excluding current)
+            try {
+                var res2 = await fetch(DIRECTUS_URL + '/items/posts?fields=*,featured_image.*,categories.categories_id.*&sort=-date_published&filter[status][_eq]=published&filter[language][_eq]=es&filter[id][_neq]=' + currentPost.id + '&limit=2&offset=2');
+                var data2 = await res2.json();
+                var container2 = document.getElementById('sidebar-related');
+                (data2.data || []).forEach(function(p) { container2.insertAdjacentHTML('beforeend', sidebarCard(p)); });
+            } catch(e) {}
+
+            // Categories
+            try {
+                var res3 = await fetch(DIRECTUS_URL + '/items/categories?fields=*&sort=name');
+                var data3 = await res3.json();
+                var container3 = document.getElementById('sidebar-categories');
+                (data3.data || []).forEach(function(cat) {
+                    container3.insertAdjacentHTML('beforeend',
+                        '<a href="/noticias/categoria/' + cat.slug + '" class="font-jakarta text-[13px] text-title border border-gray-200 px-[15px] py-[6px] rounded-btn hover:border-primary hover:text-primary transition-colors">' + cat.name + '</a>'
+                    );
+                });
+            } catch(e) {}
+        }
+
+        document.addEventListener('DOMContentLoaded', loadPost);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+</body>
+</html>

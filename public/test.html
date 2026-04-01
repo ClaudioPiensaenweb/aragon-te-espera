@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Test</title></head>
+<body>
+<div id="result">Loading...</div>
+<script>
+/* =============================================
+   ARAGÓN TE ESPERA – Header & Footer Templates
+   Bilingual (ES / EN)
+   ============================================= */
+
+var SITE_LANG = window.location.pathname.startsWith('/en') ? 'en' : 'es';
+var LANG_PREFIX = SITE_LANG === 'en' ? '/en' : '';
+
+var i18n = {
+    es: {
+        home: 'Inicio', about: 'Quiénes somos', services: 'Servicios',
+        collaborate: 'Colabora', news: 'Noticias', contact: 'Contacto',
+        footerTitle: 'Contacta con nosotros',
+        footerText: 'Cuéntanos qué necesitas y prepararemos una propuesta a medida.',
+        legal: 'Aviso legal', privacy: 'Política de privacidad', cookies: 'Política de cookies',
+        madeBy: 'Desarrollo web por Piensaenweb',
+        langLabel: 'EN', langHref: '/en',
+        homeHref: '/', aboutHref: '/quienes-somos', servicesHref: '/servicios',
+        collaborateHref: '/colabora', newsHref: '/noticias',
+        legalHref: '/aviso-legal', privacyHref: '/politica-de-privacidad', cookiesHref: '/politica-de-cookies'
+    },
+    en: {
+        home: 'Home', about: 'About us', services: 'Services',
+        collaborate: 'Collaborate', news: 'News', contact: 'Contact',
+        footerTitle: 'Get in touch',
+        footerText: 'Tell us what you need and we\'ll prepare a tailored proposal.',
+        legal: 'Legal notice', privacy: 'Privacy policy', cookies: 'Cookie policy',
+        madeBy: 'Web development by Piensaenweb',
+        langLabel: 'ES', langHref: '/',
+        homeHref: '/en', aboutHref: '/en/about-us', servicesHref: '/en/services',
+        collaborateHref: '/en/collaborate', newsHref: '/en/news',
+        legalHref: '/en/legal-notice', privacyHref: '/en/privacy-policy', cookiesHref: '/en/cookie-policy'
+    }
+};
+
+var t = i18n[SITE_LANG];
+
+function renderHeader() {
+    var header = document.getElementById('main-header');
+    if (!header) return;
+    var navLink = 'nav-link text-white font-jakarta font-[500] text-[16px] transition-colors duration-300';
+    var mobLink = 'font-jakarta font-[500] text-[22px] text-white hover:text-primary transition-colors';
+    header.innerHTML =
+        '<div class="max-w-[1700px] mx-auto px-section flex justify-between items-center gap-responsive relative z-[10]">' +
+            '<a href="' + t.homeHref + '" class="shrink-0 transition-all duration-300 z-[10]">' +
+                '<img src="/marca/aragon-te-espera-logo.png" alt="Aragón te espera" class="logo-img h-[70px] w-auto brightness-0 invert transition-all duration-300">' +
+            '</a>' +
+            '<nav class="hidden dk:flex items-center gap-[40px] absolute left-1/2 -translate-x-1/2">' +
+                '<a href="' + t.homeHref + '" class="' + navLink + '">' + t.home + '</a>' +
+                '<a href="' + t.aboutHref + '" class="' + navLink + '">' + t.about + '</a>' +
+                '<a href="' + t.servicesHref + '" class="' + navLink + '">' + t.services + '</a>' +
+                '<a href="' + t.collaborateHref + '" class="' + navLink + '">' + t.collaborate + '</a>' +
+                '<a href="' + t.newsHref + '" class="' + navLink + '">' + t.news + '</a>' +
+            '</nav>' +
+            '<div class="flex items-center gap-[20px] shrink-0 z-[10]">' +
+                '<a href="' + t.langHref + '" class="nav-link text-white flex items-center gap-[5px] font-[500] hover:opacity-80 transition-colors duration-300">' +
+                    '<i data-lucide="globe" class="w-[18px] h-[18px]"></i> ' + t.langLabel +
+                '</a>' +
+                '<a href="#footer-section" class="btn btn-filled hidden dk:inline-flex scroll-to-footer">' + t.contact + '</a>' +
+                '<button id="mobile-toggle" class="dk:hidden nav-link text-white">' +
+                    '<i data-lucide="menu" class="w-[28px] h-[28px] mobile-icon-open"></i>' +
+                    '<i data-lucide="x" class="w-[28px] h-[28px] mobile-icon-close hidden"></i>' +
+                '</button>' +
+            '</div>' +
+        '</div>' +
+        '<div id="mobile-menu" class="dk:hidden fixed inset-0 bg-accent-cold1 z-[1] flex flex-col justify-center items-center gap-[30px] transition-all duration-500 opacity-0 pointer-events-none translate-y-[-20px]">' +
+            '<a href="' + t.homeHref + '" class="' + mobLink + '">' + t.home + '</a>' +
+            '<a href="' + t.aboutHref + '" class="' + mobLink + '">' + t.about + '</a>' +
+            '<a href="' + t.servicesHref + '" class="' + mobLink + '">' + t.services + '</a>' +
+            '<a href="' + t.collaborateHref + '" class="' + mobLink + '">' + t.collaborate + '</a>' +
+            '<a href="' + t.newsHref + '" class="' + mobLink + '">' + t.news + '</a>' +
+            '<a href="#footer-section" class="' + mobLink + ' scroll-to-footer">' + t.contact + '</a>' +
+        '</div>';
+
+    var toggle = document.getElementById('mobile-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+            var isOpen = menu.classList.contains('pointer-events-none');
+            if (isOpen) {
+                menu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                menu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                toggle.querySelector('.mobile-icon-open').classList.add('hidden');
+                toggle.querySelector('.mobile-icon-close').classList.remove('hidden');
+            } else {
+                menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                menu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                toggle.querySelector('.mobile-icon-open').classList.remove('hidden');
+                toggle.querySelector('.mobile-icon-close').classList.add('hidden');
+            }
+        });
+    }
+}
+
+function renderFooter() {
+    var footer = document.getElementById('footer-section');
+    if (!footer) return;
+    footer.innerHTML =
+        '<div class="container-boxed px-section pt-[80px] dk:pt-[120px] pb-[40px]">' +
+            '<div class="max-w-[800px] mb-[60px]">' +
+                '<h2 class="titulo-2 !text-white">' + t.footerTitle + '</h2>' +
+                '<p class="texto-base text-white/80">' + t.footerText + '</p>' +
+            '</div>' +
+            '<div id="footer-contact" class="grid grid-cols-1 tb:grid-cols-3 gap-responsive mb-[170px]">' +
+                '<a href="mailto:" id="footer-email-link" class="flex flex-col items-start group">' +
+                    '<div class="w-[50px] h-[50px] rounded-full bg-white/10 flex items-center justify-center text-white mb-[20px] group-hover:scale-110 group-hover:bg-primary transition-all">' +
+                        '<i data-lucide="mail" class="w-[24px] h-[24px]"></i>' +
+                    '</div>' +
+                    '<span id="footer-email" class="font-jakarta font-bold text-white group-hover:text-primary transition-colors"></span>' +
+                '</a>' +
+                '<a href="tel:" id="footer-phone-link" class="flex flex-col items-start group">' +
+                    '<div class="w-[50px] h-[50px] rounded-full bg-white/10 flex items-center justify-center text-white mb-[20px] group-hover:scale-110 group-hover:bg-primary transition-all">' +
+                        '<i data-lucide="phone" class="w-[24px] h-[24px]"></i>' +
+                    '</div>' +
+                    '<span id="footer-phone" class="font-jakarta font-bold text-white group-hover:text-primary transition-colors"></span>' +
+                '</a>' +
+                '<a href="#" id="footer-address-link" target="_blank" rel="noopener noreferrer" class="flex flex-col items-start group">' +
+                    '<div class="w-[50px] h-[50px] rounded-full bg-white/10 flex items-center justify-center text-white mb-[20px] group-hover:scale-110 group-hover:bg-primary transition-all">' +
+                        '<i data-lucide="map-pin" class="w-[24px] h-[24px]"></i>' +
+                    '</div>' +
+                    '<span id="footer-address" class="font-jakarta font-bold text-white group-hover:text-primary transition-colors"></span>' +
+                '</a>' +
+            '</div>' +
+            '<div class="flex flex-col tb:flex-row justify-between items-center pt-[30px] border-t border-white/10 gap-[20px]">' +
+                '<div class="flex flex-wrap items-center gap-[15px] dk:gap-[30px]">' +
+                    '<a href="' + t.legalHref + '" class="font-jakarta text-[14px] text-white/70 hover:text-white transition-colors">' + t.legal + '</a>' +
+                    '<a href="' + t.privacyHref + '" class="font-jakarta text-[14px] text-white/70 hover:text-white transition-colors">' + t.privacy + '</a>' +
+                    '<a href="' + t.cookiesHref + '" class="font-jakarta text-[14px] text-white/70 hover:text-white transition-colors">' + t.cookies + '</a>' +
+                '</div>' +
+                '<a href="https://piensaenweb.com/" target="_blank" rel="noopener noreferrer" class="font-jakarta text-[14px] text-white/70 hover:text-white transition-colors">' +
+                    t.madeBy +
+                '</a>' +
+            '</div>' +
+        '</div>';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    renderHeader();
+    renderFooter();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+
+    fetch('http://localhost:8055/items/empresa')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            var e = data.data;
+            if (!e) return;
+            var emailEl = document.getElementById('footer-email');
+            var emailLink = document.getElementById('footer-email-link');
+            var phoneEl = document.getElementById('footer-phone');
+            var phoneLink = document.getElementById('footer-phone-link');
+            var addressEl = document.getElementById('footer-address');
+            if (emailEl) emailEl.textContent = e.correo_electronico || '';
+            if (emailLink) emailLink.href = 'mailto:' + (e.correo_electronico || '');
+            if (phoneEl) phoneEl.textContent = e.telefono || '';
+            if (phoneLink) phoneLink.href = 'tel:' + (e.telefono || '').replace(/\s/g, '');
+            if (addressEl) addressEl.textContent = e.direccion_fiscal || '';
+            var addressLink = document.getElementById('footer-address-link');
+            if (addressLink && e.enlace_google_maps) addressLink.href = e.enlace_google_maps;
+        })
+        .catch(function(err) { console.error('Error loading empresa:', err); });
+
+    document.querySelectorAll('.scroll-to-footer').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var menu = document.getElementById('mobile-menu');
+            var toggle = document.getElementById('mobile-toggle');
+            if (menu && !menu.classList.contains('pointer-events-none')) {
+                menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                menu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                if (toggle) {
+                    toggle.querySelector('.mobile-icon-open').classList.remove('hidden');
+                    toggle.querySelector('.mobile-icon-close').classList.add('hidden');
+                }
+            }
+            document.documentElement.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+        });
+    });
+});
+
+</script>
+<script>
+document.getElementById('result').innerHTML =
+    'SITE_LANG: ' + SITE_LANG + '<br>' +
+    't type: ' + typeof t + '<br>' +
+    't.home: ' + (t ? t.home : 'NULL') + '<br>' +
+    't.homeHref: ' + (t ? t.homeHref : 'NULL');
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+</body></html>

@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Docker volumes
+pgdata/
+directus_uploads/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Planning (internal)
+.planning/memoria/
+.planning/.engram-cache.json
+
+# Logs
+*.log

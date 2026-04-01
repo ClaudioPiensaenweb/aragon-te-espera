@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie policy - Aragón te espera</title>
+    <meta name="description" content="Cookie policy - Aragón te espera - Tourism experiences in Aragón for tour operators and international agencies.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700&family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: { 'mh': '479px', 'tb': '768px', 'dk': '992px' },
+                extend: {
+                    colors: {
+                        accent: { warm1: '#FF3E00', warm2: '#FF6800', warm3: '#FFA000', warm4: '#FFCC00', cold1: '#001630', cold2: '#003C64', cold3: '#0081CE', cold4: '#36D1F4' },
+                        title: '#001630', text: '#2F3B4A', primary: '#FF6800'
+                    },
+                    fontFamily: { newsreader: ['"Newsreader"', 'serif'], jakarta: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    borderRadius: { 'base': '7px', 'btn': '50em' }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <script src="/js/dynamic-styles.js"></script>
+
+    <!-- Templates -->
+    <script src="/js/templates-en.js"></script>
+</head>
+<body class="antialiased interior blog-single">
+
+    <!-- HEADER -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[100]"></header>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-[140px] pb-[80px] dk:pt-[200px] dk:pb-[120px]">
+        <div class="container-boxed px-section legal-page-wrap">
+            <div class="max-w-[800px]">
+                <div class="legal-content" id="legal-content">
+                    <h1 class="titulo-1 mb-[30px]">Cookie policy</h1>
+                    <button class="btn btn-outline cookie-config-trigger mb-[30px]">Configure cookies</button>
+
+                    <h2>What are cookies?</h2>
+                    <p>A cookie is a file that is downloaded to your computer when you access certain web pages. Cookies allow a website, among other things, to store and retrieve information about the browsing habits of a user or their device and, depending on the information they contain and the way you use your device, they can be used to recognise the user.</p>
+
+                    <h2>What types of cookies does this website use?</h2>
+                    <ul>
+                        <li><strong>Analytics cookies:</strong> These are cookies that, whether processed by us or by third parties, allow us to quantify the number of users and thus carry out the measurement and statistical analysis of the use made by users of the service offered. To this end, your browsing on our website is analysed in order to improve the range of products or services we offer.</li>
+                        <li><strong>Advertising cookies:</strong> This site does not install this type of cookie. These are cookies that, whether processed by us or by third parties, allow us to manage as efficiently as possible the advertising spaces on the website, adapting the content of the advertisement to the content of the service requested or to the use you make of our website. To this end, we may analyse your internet browsing habits and show you advertising related to your browsing profile.</li>
+                    </ul>
+
+                    <h2>Learn how to block cookies</h2>
+                    <p>You can allow, block or delete cookies installed on your device by configuring the options of the browser installed on your computer.</p>
+                    <ul>
+                        <li>Internet Explorer: <a href="http://windows.microsoft.com/es-es/windows-vista/block-or-allow-cookies">http://windows.microsoft.com/es-es/windows-vista/block-or-allow-cookies</a></li>
+                        <li>Firefox: <a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we">https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we</a></li>
+                        <li>Chrome: <a href="https://support.google.com/chrome/answer/95647?hl=es">https://support.google.com/chrome/answer/95647?hl=es</a></li>
+                        <li>Opera: <a href="http://help.opera.com/Windows/11.50/es-ES/cookies.html">http://help.opera.com/Windows/11.50/es-ES/cookies.html</a></li>
+                        <li>Safari: <a href="http://www.apple.com/es/privacy/use-of-cookies/">http://www.apple.com/es/privacy/use-of-cookies/</a></li>
+                    </ul>
+
+                    <h2>Applicable legislation</h2>
+                    <p>Any dispute arising from the interpretation of this "Legal Notice", "Privacy Policy" or "Cookie Policy" shall be governed by Spanish law, specifically under the jurisdiction of the Courts and Tribunals of {{provincia}}.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-section" class="relative w-full z-[0] bg-title"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+    (function() {
+        fetch('http://localhost:8055/items/empresa')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var e = data.data;
+                if (!e) return;
+                var el = document.getElementById('legal-content');
+                if (!el) return;
+                var html = el.innerHTML;
+                html = html.replace(/\{\{razon_social\}\}/g, e.razon_social || '');
+                html = html.replace(/\{\{cif\}\}/g, e.cif || '');
+                html = html.replace(/\{\{direccion_fiscal\}\}/g, e.direccion_fiscal || '');
+                html = html.replace(/\{\{provincia\}\}/g, e.provincia || '');
+                html = html.replace(/\{\{telefono\}\}/g, e.telefono || '');
+                html = html.replace(/\{\{correo_electronico\}\}/g, e.correo_electronico || '');
+                html = html.replace(/\{\{dominio\}\}/g, e.dominio || '');
+                html = html.replace(/\{\{nombre_empresa\}\}/g, e.nombre_empresa || '');
+                el.innerHTML = html;
+            })
+            .catch(function(err) { console.error('Error loading empresa data:', err); });
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+</body>
+</html>

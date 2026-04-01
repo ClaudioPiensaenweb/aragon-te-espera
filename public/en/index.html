@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aragón te espera - Tourism experiences for agencies</title>
+    <meta name="description" content="Tourism experiences in Aragón for tour operators and international agencies. Cultural, nature and gastronomic proposals.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700&family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'mh': '479px',
+                    'tb': '768px',
+                    'dk': '992px',
+                },
+                extend: {
+                    colors: {
+                        accent: {
+                            warm1: '#FF3E00',
+                            warm2: '#FF6800',
+                            warm3: '#FFA000',
+                            warm4: '#FFCC00',
+                            cold1: '#001630',
+                            cold2: '#003C64',
+                            cold3: '#0081CE',
+                            cold4: '#36D1F4'
+                        },
+                        title: '#001630',
+                        text: '#2F3B4A',
+                        primary: '#FF6800'
+                    },
+                    fontFamily: {
+                        newsreader: ['"Newsreader"', 'serif'],
+                        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'base': '7px',
+                        'btn': '50em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <script src="/js/dynamic-styles.js"></script>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Aragón te espera",
+      "description": "Tourism experiences in Aragón for tour operators and international agencies. Cultural, nature and gastronomic proposals.",
+      "url": "https://aragonteespera.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Zaragoza",
+        "addressRegion": "Aragón",
+        "addressCountry": "ES"
+      }
+    }
+    </script>
+
+    <!-- Templates -->
+    <script src="/js/templates-en.js"></script>
+</head>
+<body class="antialiased">
+
+    <!-- HEADER -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[100]"></header>
+
+    <!-- HERO PARALLAX (Introducción) -->
+    <div id="hero-section" class="fixed top-0 left-0 w-full h-screen z-[0]">
+        <img id="hero-bg-a" src="/img/cabecera-01.jpg" alt="Landscape of Aragón" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" />
+        <img id="hero-bg-b" src="/img/cabecera-02.jpg" alt="Landscape of Aragón" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" />
+        <div class="absolute inset-0 bg-[rgb(13_24_41/72%)]"></div>
+
+        <div class="relative z-[10] w-full h-full flex flex-col justify-center items-center text-center px-section container-boxed">
+            <h1 class="titulo-hero !text-white !mb-[20px] fade-up">Tourism experiences in Aragón for tour operators and international agencies</h1>
+            <p class="texto-base !text-white/90 texto-subtitulo fade-up delay-100">Cultural, nature and gastronomic proposals with professional operations, flexibility and multilingual attention.</p>
+            <a href="/en/services" class="btn btn-filled mt-[30px] fade-up delay-200">
+                View services
+            </a>
+            <a href="#main-content" id="scroll-indicator" class="absolute bottom-[40px] left-1/2 -translate-x-1/2 z-[30] cursor-pointer">
+                <div class="w-[26px] h-[42px] border-2 border-white/70 rounded-[20px] relative">
+                    <div class="scroll-wheel"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="relative z-[10] mt-[100vh] bg-white shadow-[0_-15px_40px_rgba(0,22,48,0.1)]">
+
+        <!-- ABOUT US -->
+        <section class="overflow-hidden">
+            <div class="block-full">
+                <div class="block-text fade-in order-1">
+                    <div class="block-text-inner">
+                    <h2 class="titulo-2">A local partner for your programmes in Aragón</h2>
+                    <p class="texto-base mt-[20px]">We connect the territory with the sector's <strong>real needs</strong>. Agile coordination, tailor-made budgets and continuous support so every programme runs with precision.</p>
+                    <a href="/en/about-us" class="btn btn-outline mt-[30px]">
+                        About us
+                    </a>
+                    </div>
+                </div>
+                <div class="block-image order-2" style="background-image: url('/img/cabecera-03.jpg')" role="img" aria-label="Team of local professionals"></div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="servicios" class="py-section px-section bg-[#F8F9FA]">
+            <div class="container-boxed">
+                <div class="text-center flex flex-col items-center mb-[60px] fade-in">
+                    <h2 class="titulo-2">Our services</h2>
+                    <p class="texto-base texto-subtitulo">Flexible proposals, adaptable to each market and designed to integrate easily into any catalogue.</p>
+                </div>
+
+                <div class="grid grid-cols-1 tb:grid-cols-2 dk:grid-cols-3 gap-responsive">
+                    <!-- Service 1 -->
+                    <div class="bg-white rounded-base shadow-[0_5px_20px_rgba(0,0,0,0.03)] flex flex-col items-start hover:-translate-y-2 transition-transform duration-300 fade-in overflow-hidden">
+                        <img src="/img/cultura-01.jpg" alt="Cultural visits" class="w-full h-[200px] object-cover">
+                        <div class="px-[20px] py-[30px] mh:px-[30px] flex flex-col h-full w-full">
+                            <h3 class="titulo-3">Cultural visits</h3>
+                            <div class="mt-auto pt-[20px] w-full">
+                                <a href="/en/services#cultural-visits" class="btn btn-outline">
+                                    View service
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="bg-white rounded-base shadow-[0_5px_20px_rgba(0,0,0,0.03)] flex flex-col items-start hover:-translate-y-2 transition-transform duration-300 fade-in delay-100 overflow-hidden">
+                        <img src="/img/naturaleza-01.jpg" alt="Nature and mountain" class="w-full h-[200px] object-cover">
+                        <div class="px-[20px] py-[30px] mh:px-[30px] flex flex-col h-full w-full">
+                            <h3 class="titulo-3">Nature and mountain</h3>
+                            <div class="mt-auto pt-[20px] w-full">
+                                <a href="/en/services#nature-mountain" class="btn btn-outline">
+                                    View service
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="bg-white rounded-base shadow-[0_5px_20px_rgba(0,0,0,0.03)] flex flex-col items-start hover:-translate-y-2 transition-transform duration-300 fade-in delay-200 overflow-hidden">
+                        <img src="/img/enoturismo-01.jpg" alt="Wine tourism and gastronomy" class="w-full h-[200px] object-cover">
+                        <div class="px-[20px] py-[30px] mh:px-[30px] flex flex-col h-full w-full">
+                            <h3 class="titulo-3">Wine tourism and gastronomy</h3>
+                            <div class="mt-auto pt-[20px] w-full">
+                                <a href="/en/services#wine-gastronomy" class="btn btn-outline">
+                                    View service
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LATEST NEWS -->
+        <section class="py-section px-section">
+            <div class="container-boxed">
+                <div class="flex flex-col dk:flex-row dk:justify-between dk:items-end mb-[60px] gap-[30px] fade-in">
+                    <div>
+                        <h2 class="titulo-2">Latest news</h2>
+                        <p class="texto-base texto-subtitulo">Ideas, routes and proposals to discover Aragón's potential as a tourist destination</p>
+                    </div>
+                    <a href="/en/news" class="btn btn-outline shrink-0">
+                        View all news
+                    </a>
+                </div>
+
+                <div id="latest-news-grid" class="grid grid-cols-1 tb:grid-cols-2 dk:grid-cols-3 gap-responsive">
+                    <!-- Dynamically loaded from Directus -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PARALLAX -->
+    <footer id="footer-section" class="fixed bottom-0 left-0 w-full z-[0] opacity-0 pointer-events-none bg-title"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/js/script.js"></script>
+    <script>
+        (function() {
+            var images = ['img/cabecera-01.jpg', 'img/cabecera-02.jpg', 'img/cabecera-03.jpg', 'img/cabecera-04.jpg'];
+            var index = 0;
+            var imgA = document.getElementById('hero-bg-a');
+            var imgB = document.getElementById('hero-bg-b');
+            if (!imgA || !imgB) return;
+            var active = imgA;
+            var next = imgB;
+            setInterval(function() {
+                index = (index + 1) % images.length;
+                next.src = images[index];
+                next.style.opacity = 1;
+                active.style.opacity = 0;
+                var tmp = active;
+                active = next;
+                next = tmp;
+            }, 3000);
+        })();
+    </script>
+    <script>
+        (function() {
+            var DIRECTUS_URL = 'http://localhost:8055';
+            function formatDate(d) {
+                if (!d) return '';
+                return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+            }
+            fetch(DIRECTUS_URL + '/items/posts?fields=title,slug,date_published,featured_image.id&sort=-date_published&filter[status][_eq]=published&filter[language][_eq]=en&limit=3')
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    var grid = document.getElementById('latest-news-grid');
+                    if (!grid || !data.data) return;
+                    data.data.forEach(function(post) {
+                        var img = post.featured_image
+                            ? DIRECTUS_URL + '/assets/' + post.featured_image.id + '?width=800&height=500&fit=cover'
+                            : '/img/cabecera-02.jpg';
+                        grid.insertAdjacentHTML('beforeend',
+                            '<a href="/en/news/' + post.slug + '" class="group block">' +
+                                '<div class="w-full h-[250px] rounded-base overflow-hidden mb-[20px]">' +
+                                    '<img src="' + img + '" alt="' + post.title + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">' +
+                                '</div>' +
+                                '<div class="text-text font-jakarta text-[14px] font-[400] mb-[10px]">' + formatDate(post.date_published) + '</div>' +
+                                '<h3 class="titulo-4 group-hover:text-primary transition-colors">' + post.title + '</h3>' +
+                            '</a>'
+                        );
+                    });
+                    gsap.fromTo(grid.children, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out', stagger: 0.15,
+                        scrollTrigger: { trigger: grid, start: 'top 85%', toggleActions: 'play none none reverse' }
+                    });
+                })
+                .catch(function(e) { console.error('Error loading latest news:', e); });
+        })();
+    </script>
+    <script>
+        var si = document.getElementById('scroll-indicator');
+        if (si) si.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+</body>
+</html>

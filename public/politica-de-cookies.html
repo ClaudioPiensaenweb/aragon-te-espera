@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de cookies - Aragón te espera</title>
+    <meta name="description" content="Política de cookies - Aragón te espera - Experiencias turísticas en Aragón para touroperadores y agencias internacionales.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700&family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: { 'mh': '479px', 'tb': '768px', 'dk': '992px' },
+                extend: {
+                    colors: {
+                        accent: { warm1: '#FF3E00', warm2: '#FF6800', warm3: '#FFA000', warm4: '#FFCC00', cold1: '#001630', cold2: '#003C64', cold3: '#0081CE', cold4: '#36D1F4' },
+                        title: '#001630', text: '#2F3B4A', primary: '#FF6800'
+                    },
+                    fontFamily: { newsreader: ['"Newsreader"', 'serif'], jakarta: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    borderRadius: { 'base': '7px', 'btn': '50em' }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <script src="/js/dynamic-styles.js"></script>
+
+    <!-- Templates -->
+    <script src="/js/templates-es.js"></script>
+</head>
+<body class="antialiased interior blog-single">
+
+    <!-- HEADER -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[100]"></header>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-[140px] pb-[80px] dk:pt-[200px] dk:pb-[120px]">
+        <div class="container-boxed px-section legal-page-wrap">
+            <div class="max-w-[800px]">
+                <div class="legal-content" id="legal-content">
+                    <h1 class="titulo-1 mb-[30px]">Política de cookies</h1>
+                    <button class="btn btn-outline cookie-config-trigger mb-[30px]">Configurar cookies</button>
+
+                    <h2>¿Qué son las cookies?</h2>
+                    <p>Una cookie es un fichero que se descarga en su ordenador al acceder a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información que contengan y de la forma en que utilice su equipo, pueden utilizarse para reconocer al usuario.</p>
+
+                    <h2>¿Qué tipos de cookies utiliza esta página web?</h2>
+                    <ul>
+                        <li><strong>Cookies de análisis:</strong> Son aquéllas que bien tratadas por nosotros o por terceros, nos permiten cuantificar el número de usuarios y así realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado. Para ello se analiza su navegación en nuestra página web con el fin de mejorar la oferta de productos o servicios que le ofrecemos.</li>
+                        <li><strong>Cookies publicitarias:</strong> Este sitio no instala este tipo de cookies. Son aquéllas que, bien tratadas por nosotros o por terceros, nos permiten gestionar de la forma más eficaz posible la oferta de los espacios publicitarios que hay en la página web, adecuando el contenido del anuncio al contenido del servicio solicitado o al uso que realice de nuestra página web. Para ello podemos analizar sus hábitos de navegación en Internet y podemos mostrarle publicidad relacionada con su perfil de navegación.</li>
+                    </ul>
+
+                    <h2>Aprenda a bloquear las cookies</h2>
+                    <p>Puede usted permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador instalado en su ordenador.</p>
+                    <ul>
+                        <li>Internet Explorer: <a href="http://windows.microsoft.com/es-es/windows-vista/block-or-allow-cookies">http://windows.microsoft.com/es-es/windows-vista/block-or-allow-cookies</a></li>
+                        <li>Firefox: <a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we">https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we</a></li>
+                        <li>Chrome: <a href="https://support.google.com/chrome/answer/95647?hl=es">https://support.google.com/chrome/answer/95647?hl=es</a></li>
+                        <li>Opera: <a href="http://help.opera.com/Windows/11.50/es-ES/cookies.html">http://help.opera.com/Windows/11.50/es-ES/cookies.html</a></li>
+                        <li>Safari: <a href="http://www.apple.com/es/privacy/use-of-cookies/">http://www.apple.com/es/privacy/use-of-cookies/</a></li>
+                    </ul>
+
+                    <h2>Legislación aplicable</h2>
+                    <p>Toda la controversia surgida de la interpretación del presente "Aviso Legal", "Política de Privacidad" o "Política de cookies" se regirá por la legislación española, en concreto a la jurisdicción de los Juzgados y Tribunales de {{provincia}}.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-section" class="relative w-full z-[0] bg-title"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+    (function() {
+        fetch('http://localhost:8055/items/empresa')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var e = data.data;
+                if (!e) return;
+                var el = document.getElementById('legal-content');
+                if (!el) return;
+                var html = el.innerHTML;
+                html = html.replace(/\{\{razon_social\}\}/g, e.razon_social || '');
+                html = html.replace(/\{\{cif\}\}/g, e.cif || '');
+                html = html.replace(/\{\{direccion_fiscal\}\}/g, e.direccion_fiscal || '');
+                html = html.replace(/\{\{provincia\}\}/g, e.provincia || '');
+                html = html.replace(/\{\{telefono\}\}/g, e.telefono || '');
+                html = html.replace(/\{\{correo_electronico\}\}/g, e.correo_electronico || '');
+                html = html.replace(/\{\{dominio\}\}/g, e.dominio || '');
+                html = html.replace(/\{\{nombre_empresa\}\}/g, e.nombre_empresa || '');
+                el.innerHTML = html;
+            })
+            .catch(function(err) { console.error('Error loading empresa data:', err); });
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+</body>
+</html>

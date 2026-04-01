@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Aragón te espera</title>
+    <meta name="description" content="We design tourism experiences designed to integrate easily into the programmes of tour operators, incoming agencies and international platforms.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700&family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'mh': '479px',
+                    'tb': '768px',
+                    'dk': '992px',
+                },
+                extend: {
+                    colors: {
+                        accent: {
+                            warm1: '#FF3E00',
+                            warm2: '#FF6800',
+                            warm3: '#FFA000',
+                            warm4: '#FFCC00',
+                            cold1: '#001630',
+                            cold2: '#003C64',
+                            cold3: '#0081CE',
+                            cold4: '#36D1F4'
+                        },
+                        title: '#001630',
+                        text: '#2F3B4A',
+                        primary: '#FF6800'
+                    },
+                    fontFamily: {
+                        newsreader: ['"Newsreader"', 'serif'],
+                        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'base': '7px',
+                        'btn': '50em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <script src="/js/dynamic-styles.js"></script>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Services - Aragón te espera",
+      "description": "We design tourism experiences designed to integrate easily into the programmes of tour operators, incoming agencies and international platforms.",
+      "publisher": {
+        "@type": "TravelAgency",
+        "name": "Aragón te espera"
+      }
+    }
+    </script>
+
+    <!-- Templates -->
+    <script src="/js/templates-en.js"></script>
+</head>
+<body class="antialiased interior">
+
+    <!-- HEADER -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[100]"></header>
+
+    <!-- CABECERA PARALLAX -->
+    <div id="hero-section" class="relative w-full z-[0]">
+        <img src="/img/servicios-cabecera.jpg" alt="Tourism services in Aragón" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-[rgb(13_24_41/72%)]"></div>
+
+        <div class="relative z-[10] w-full flex flex-col justify-center items-center text-center px-section container-boxed interior-hero">
+            <h1 class="titulo-hero !text-white fade-up">Our services</h1>
+            <p class="texto-base !text-white/90 texto-subtitulo mt-[10px] fade-up delay-100">We design tourism experiences designed to integrate easily into the programmes of tour operators, incoming agencies and international platforms.</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="relative z-[10] bg-white shadow-[0_-15px_40px_rgba(0,22,48,0.1)]">
+
+        <!-- SERVICES INTRODUCTION -->
+        <section class="overflow-hidden">
+            <div class="block-full">
+                <div class="block-image order-2 dk:order-1" style="background-image: url('/img/servicios-01.jpg')" role="img" aria-label="Team of professionals"></div>
+
+                <div class="block-text fade-in order-1 dk:order-2">
+                    <div class="block-text-inner">
+                    <h2 class="titulo-2">Our tourism experiences</h2>
+                    <p class="texto-base">Our team of multilingual <strong>official guides</strong> and local specialists guarantees a professional, flexible service adaptable to each market.</p>
+
+                    <div class="flex flex-col border-t border-gray-200 mt-[10px]">
+                        <details name="experiencias" class="group border-b border-gray-200">
+                            <summary class="flex justify-between items-center py-[20px] cursor-pointer hover:text-primary transition-colors">
+                                <span class="texto-base pr-[15px] font-bold text-title flex items-center gap-[15px]">
+                                    <i data-lucide="shield-check" class="w-[20px] h-[20px] shrink-0 text-primary"></i>
+                                    <span>Solid structure</span>
+                                </span>
+                                <i data-lucide="plus" class="w-[20px] h-[20px] shrink-0 text-primary group-open:hidden"></i>
+                                <i data-lucide="minus" class="w-[20px] h-[20px] shrink-0 text-primary hidden group-open:block"></i>
+                            </summary>
+                            <div class="pb-[20px] pl-[35px]">
+                                <p class="texto-base">We offer a solid structure for those seeking <strong>reliability, authenticity</strong> and impeccable logistics in their destination products: guided visits, cultural excursions, nature programmes or gastronomic and wine routes.</p>
+                            </div>
+                        </details>
+
+                        <details name="experiencias" class="group border-b border-gray-200">
+                            <summary class="flex justify-between items-center py-[20px] cursor-pointer hover:text-primary transition-colors">
+                                <span class="texto-base pr-[15px] font-bold text-title flex items-center gap-[15px]">
+                                    <i data-lucide="handshake" class="w-[20px] h-[20px] shrink-0 text-primary"></i>
+                                    <span>Strategic partner</span>
+                                </span>
+                                <i data-lucide="plus" class="w-[20px] h-[20px] shrink-0 text-primary group-open:hidden"></i>
+                                <i data-lucide="minus" class="w-[20px] h-[20px] shrink-0 text-primary hidden group-open:block"></i>
+                            </summary>
+                            <div class="pb-[20px] pl-[35px]">
+                                <p class="texto-base">More than a supplier, we are a strategic <strong>local partner</strong>: we combine knowledge of the territory with agile operations, transparent budgets and personalised attention before, during and after the trip.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <a href="#footer-section" class="btn btn-outline mt-[10px] scroll-to-footer">I'm interested</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CULTURAL VISITS -->
+        <section id="cultural-visits" class="bg-[#F8F9FA] overflow-hidden">
+            <div class="block-full">
+                <div class="block-text fade-in order-1">
+                    <div class="block-text-inner">
+                    <h2 class="titulo-2">Cultural visits</h2>
+                    <p class="texto-base">The <strong>Aragonese heritage</strong> is a journey through time. We offer guided visits to monuments, museums and historic centres, from Zaragoza to Teruel, passing through Huesca and charming villages, all with official guides and adapted to the language and profile of the group.</p>
+
+                    <div class="flex flex-col border-t border-gray-200 mt-[10px]">
+                        <details name="culturales" class="group border-b border-gray-200">
+                            <summary class="flex justify-between items-center py-[20px] cursor-pointer hover:text-primary transition-colors">
+                                <span class="texto-base pr-[15px] font-bold text-title flex items-center gap-[15px]">
+                                    <i data-lucide="landmark" class="w-[20px] h-[20px] shrink-0 text-primary"></i>
+                                    <span>Immersive experiences</span>
+                                </span>
+                                <i data-lucide="plus" class="w-[20px] h-[20px] shrink-0 text-primary group-open:hidden"></i>
+                                <i data-lucide="minus" class="w-[20px] h-[20px] shrink-0 text-primary hidden group-open:block"></i>
+                            </summary>
+                            <div class="pb-[20px] pl-[35px]">
+                                <p class="texto-base">We design experiences that combine <strong>historical rigour</strong> and vivid storytelling, ideal for cultural circuits or urban stays.</p>
+                            </div>
+                        </details>
+
+                        <details name="culturales" class="group border-b border-gray-200">
+                            <summary class="flex justify-between items-center py-[20px] cursor-pointer hover:text-primary transition-colors">
+                                <span class="texto-base pr-[15px] font-bold text-title flex items-center gap-[15px]">
+                                    <i data-lucide="clock" class="w-[20px] h-[20px] shrink-0 text-primary"></i>
+                                    <span>Schedule flexibility</span>
+                                </span>
+                                <i data-lucide="plus" class="w-[20px] h-[20px] shrink-0 text-primary group-open:hidden"></i>
+                                <i data-lucide="minus" class="w-[20px] h-[20px] shrink-0 text-primary hidden group-open:block"></i>
+                            </summary>
+                            <div class="pb-[20px] pl-[35px]">
+                                <p class="texto-base">Our itineraries adapt to professional <strong>schedules and requirements</strong>: access, bookings, group coordination and personalised attention.</p>
+                            </div>
+                        </details>
+
+                        <details name="culturales" class="group border-b border-gray-200">
+                            <summary class="flex justify-between items-center py-[20px] cursor-pointer hover:text-primary transition-colors">
+                                <span class="texto-base pr-[15px] font-bold text-title flex items-center gap-[15px]">
+                                    <i data-lucide="users" class="w-[20px] h-[20px] shrink-0 text-primary"></i>
+                                    <span>Multilingual groups</span>
+                                </span>
+                                <i data-lucide="plus" class="w-[20px] h-[20px] shrink-0 text-primary group-open:hidden"></i>
+                                <i data-lucide="minus" class="w-[20px] h-[20px] shrink-0 text-primary hidden group-open:block"></i>
+                            </summary>
+                            <div class="pb-[20px] pl-[35px]">
+                                <p class="texto-base">We work with groups of <strong>different sizes</strong> and nationalities, adapting the duration, content and languages — English, French, German, Italian, Portuguese or Spanish — to the tour operator's needs.</p>
+                            </div>
+                        </details>
+
+                        <details name="culturales" class="group border-b border-gray-200">
+                            <summary class="flex justify-between items-center py-[20px] cursor-pointer hover:text-primary transition-colors">
+                                <span class="texto-base pr-[15px] font-bold text-title flex items-center gap-[15px]">
+                                    <i data-lucide="briefcase" class="w-[20px] h-[20px] shrink-0 text-primary"></i>
+                                    <span>Comprehensive management</span>
+                                </span>
+                                <i data-lucide="plus" class="w-[20px] h-[20px] shrink-0 text-primary group-open:hidden"></i>
+                                <i data-lucide="minus" class="w-[20px] h-[20px] shrink-0 text-primary hidden group-open:block"></i>
+                            </summary>
+                            <div class="pb-[20px] pl-[35px]">
+                                <p class="texto-base">We offer <strong>comprehensive management</strong>: monument and museum bookings, access coordination, logistical support and continuous on-route assistance. Cultural visits can be integrated into circuits or work as standalone experiences.</p>
+                            </div>
+                        </details>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="block-image order-2" style="background-image: url('/img/servicios-02.jpg')" role="img" aria-label="Cultural visits"></div>
+            </div>
+        </section>
+
+        <!-- NATURE AND MOUNTAIN -->
+        <section id="nature-mountain" class="overflow-hidden">
+            <div class="block-full">
+                <div class="block-image order-2 dk:order-1" style="background-image: url('/img/servicios-03.jpg')" role="img" aria-label="Nature and mountain"></div>
+
+                <div class="block-text fade-in order-1 dk:order-2">
+                    <div class="block-text-inner">
+                    <h2 class="titulo-2">Nature and mountain</h2>
+                    <p class="texto-base">Aragón is a land of <strong>majestic landscapes</strong>: the Pyrenees, Ordesa, the Mallos de Riglos or the Sierra de Albarracín.</p>
+
+                    <div class="flex flex-col border-t border-gray-200 mt-[10px]">
+                        <details name="naturaleza" class="group border-b border-gray-200">
+                            <summary class="flex justify-between items-center py-[20px] cursor-pointer hover:text-primary transition-colors">
+                                <span class="texto-base pr-[15px] font-bold text-title flex items-center gap-[15px]">
+                                    <i data-lucide="map" class="w-[20px] h-[20px] shrink-0 text-primary"></i>
+                                    <span>Full support</span>
+                                </span>
+                                <i data-lucide="plus" class="w-[20px] h-[20px] shrink-0 text-primary group-open:hidden"></i>
+                                <i data-lucide="minus" class="w-[20px] h-[20px] shrink-0 text-primary hidden group-open:block"></i>
+                            </summary>
+                            <div class="pb-[20px] pl-[35px]">
+                                <p class="texto-base">We create hiking, nature and mountain excursions with adapted levels and <strong>full support</strong>: transport, insurance, specialised guides and multilingual options.</p>
+                            </div>
+                        </details>
+
+                        <details name="naturaleza" class="group border-b border-gray-200">
+                            <summary class="flex justify-between items-center py-[20px] cursor-pointer hover:text-primary transition-colors">
+                                <span class="texto-base pr-[15px] font-bold text-title flex items-center gap-[15px]">
+                                    <i data-lucide="leaf" class="w-[20px] h-[20px] shrink-0 text-primary"></i>
+                                    <span>Active tourism</span>
+                                </span>
+                                <i data-lucide="plus" class="w-[20px] h-[20px] shrink-0 text-primary group-open:hidden"></i>
+                                <i data-lucide="minus" class="w-[20px] h-[20px] shrink-0 text-primary hidden group-open:block"></i>
+                            </summary>
+                            <div class="pb-[20px] pl-[35px]">
+                                <p class="texto-base">These experiences are perfect for <strong>active tourism</strong>, ecotourism or incentive programmes. We take care of every detail to guarantee safety, sustainability and an authentic connection with the natural environment.</p>
+                            </div>
+                        </details>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WINE TOURISM AND GASTRONOMY -->
+        <section id="wine-gastronomy" class="bg-[#F8F9FA] overflow-hidden">
+            <div class="block-full">
+                <div class="block-text fade-in order-1">
+                    <div class="block-text-inner">
+                    <h2 class="titulo-2">Wine tourism and gastronomy</h2>
+                    <p class="texto-base"><strong>Flavour</strong> also guides our paths.</p>
+
+                    <div class="flex flex-col border-t border-gray-200 mt-[10px]">
+                        <details name="enoturismo" class="group border-b border-gray-200">
+                            <summary class="flex justify-between items-center py-[20px] cursor-pointer hover:text-primary transition-colors">
+                                <span class="texto-base pr-[15px] font-bold text-title flex items-center gap-[15px]">
+                                    <i data-lucide="grape" class="w-[20px] h-[20px] shrink-0 text-primary"></i>
+                                    <span>Wine routes</span>
+                                </span>
+                                <i data-lucide="plus" class="w-[20px] h-[20px] shrink-0 text-primary group-open:hidden"></i>
+                                <i data-lucide="minus" class="w-[20px] h-[20px] shrink-0 text-primary hidden group-open:block"></i>
+                            </summary>
+                            <div class="pb-[20px] pl-[35px]">
+                                <p class="texto-base">We design wine routes through the main Aragonese <strong>designations of origin</strong> — Somontano, Cariñena, Campo de Borja — and gastronomic experiences that combine tradition, innovation and local products.</p>
+                            </div>
+                        </details>
+
+                        <details name="enoturismo" class="group border-b border-gray-200">
+                            <summary class="flex justify-between items-center py-[20px] cursor-pointer hover:text-primary transition-colors">
+                                <span class="texto-base pr-[15px] font-bold text-title flex items-center gap-[15px]">
+                                    <i data-lucide="utensils" class="w-[20px] h-[20px] shrink-0 text-primary"></i>
+                                    <span>Adaptable formats</span>
+                                </span>
+                                <i data-lucide="plus" class="w-[20px] h-[20px] shrink-0 text-primary group-open:hidden"></i>
+                                <i data-lucide="minus" class="w-[20px] h-[20px] shrink-0 text-primary hidden group-open:block"></i>
+                            </summary>
+                            <div class="pb-[20px] pl-[35px]">
+                                <p class="texto-base">From private tastings and winery visits to tasting menus or culinary workshops, everything adapts to the client's profile and the programme format. Each experience is conceived as a <strong>sensory journey</strong> that reinforces Aragón's identity and enriches any tourism package.</p>
+                            </div>
+                        </details>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="block-image order-2" style="background-image: url('/img/servicios-04.jpg')" role="img" aria-label="Wine tourism and gastronomy"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PARALLAX -->
+    <footer id="footer-section" class="fixed bottom-0 left-0 w-full z-[0] opacity-0 pointer-events-none bg-title"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Aragón te espera</title>
+    <meta name="description" content="News, routes and proposals to discover Aragón as a tourist destination.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700&family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: { 'mh': '479px', 'tb': '768px', 'dk': '992px' },
+                extend: {
+                    colors: {
+                        accent: { warm1: '#FF3E00', warm2: '#FF6800', warm3: '#FFA000', warm4: '#FFCC00', cold1: '#001630', cold2: '#003C64', cold3: '#0081CE', cold4: '#36D1F4' },
+                        title: '#001630', text: '#2F3B4A', primary: '#FF6800'
+                    },
+                    fontFamily: { newsreader: ['"Newsreader"', 'serif'], jakarta: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    borderRadius: { 'base': '7px', 'btn': '50em' }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <script src="/js/dynamic-styles.js"></script>
+    <script src="/js/templates-en.js"></script>
+</head>
+<body class="antialiased interior">
+
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[100]"></header>
+
+    <!-- CABECERA -->
+    <div id="hero-section" class="relative w-full z-[0]">
+        <img src="/img/cabecera-02.jpg" alt="Landscape of Aragón" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-[rgb(13_24_41/72%)]"></div>
+        <div class="relative z-[10] w-full flex flex-col justify-center items-center text-center px-section container-boxed interior-hero">
+            <h1 id="category-title" class="titulo-hero !text-white fade-up">News</h1>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="relative z-[10] bg-white shadow-[0_-15px_40px_rgba(0,22,48,0.1)]">
+        <section class="py-section px-section">
+            <div class="container-boxed">
+                <div id="blog-grid" class="grid grid-cols-1 tb:grid-cols-2 dk:grid-cols-3 gap-responsive"></div>
+
+                <div id="blog-loading" class="flex justify-center py-[60px]">
+                    <div class="w-[40px] h-[40px] border-4 border-gray-200 border-t-primary rounded-full animate-spin"></div>
+                </div>
+                <p id="blog-end" class="text-center text-text/50 py-[40px] hidden">No more articles</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer-section" class="fixed bottom-0 left-0 w-full z-[0] opacity-0 pointer-events-none bg-title"></footer>
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+        var DIRECTUS_URL = 'http://localhost:8055';
+        var POSTS_PER_PAGE = 9;
+        var currentPage = 1;
+        var isLoading = false;
+        var allLoaded = false;
+        var categorySlug = '';
+        var categoryId = null;
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            return new Date(dateStr).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+
+        function createPostCard(post) {
+            var imageUrl = post.featured_image
+                ? DIRECTUS_URL + '/assets/' + post.featured_image.id + '?width=800&height=500&fit=cover'
+                : '/img/cabecera-02.jpg';
+            var cats = post.categories
+                ? post.categories.map(function(c) { return c.categories_id ? c.categories_id.name : ''; }).filter(Boolean)
+                : [];
+            return '<a href="/en/news/' + post.slug + '" class="group block fade-in">' +
+                '<div class="w-full h-[250px] rounded-base overflow-hidden mb-[20px]">' +
+                    '<img src="' + imageUrl + '" alt="' + post.title + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">' +
+                '</div>' +
+                '<div class="flex items-center justify-between mb-[10px]">' +
+                    '<span class="text-text font-jakarta text-[14px] font-[400]">' + formatDate(post.date_published) + '</span>' +
+                    (cats.length ? '<div class="flex flex-wrap gap-[6px]">' + cats.map(function(c) { return '<span class="font-jakarta text-[12px] text-primary/80 bg-primary/5 px-[10px] py-[3px] rounded-btn">' + c + '</span>'; }).join('') + '</div>' : '') +
+                '</div>' +
+                '<h3 class="titulo-4 group-hover:text-primary transition-colors">' + post.title + '</h3>' +
+            '</a>';
+        }
+
+        async function loadPosts() {
+            if (isLoading || allLoaded || !categoryId) return;
+            isLoading = true;
+            var offset = (currentPage - 1) * POSTS_PER_PAGE;
+            var url = DIRECTUS_URL + '/items/posts?fields=*,featured_image.*,categories.categories_id.*&sort=-date_published&filter[status][_eq]=published&filter[language][_eq]=en&filter[categories][categories_id][_eq]=' + categoryId + '&limit=' + POSTS_PER_PAGE + '&offset=' + offset;
+            try {
+                var res = await fetch(url);
+                var data = await res.json();
+                var posts = data.data || [];
+
+                if (posts.length === 0) {
+                    allLoaded = true;
+                    document.getElementById('blog-loading').classList.add('hidden');
+                    document.getElementById('blog-end').classList.remove('hidden');
+                    isLoading = false;
+                    return;
+                }
+
+                var grid = document.getElementById('blog-grid');
+                posts.forEach(function(post) { grid.insertAdjacentHTML('beforeend', createPostCard(post)); });
+
+                if (posts.length < POSTS_PER_PAGE) {
+                    allLoaded = true;
+                    document.getElementById('blog-loading').classList.add('hidden');
+                }
+                currentPage++;
+
+                gsap.utils.toArray('.fade-in:not(.gsap-done)').forEach(function(elem) {
+                    elem.classList.add('gsap-done');
+                    gsap.fromTo(elem, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' });
+                });
+            } catch (err) {
+                console.error('Error loading posts:', err);
+                document.getElementById('blog-loading').innerHTML = '<p class="text-text/50">Error loading articles</p>';
+            }
+            isLoading = false;
+        }
+
+        async function init() {
+            // Extract category slug from URL: /en/news/categoria/slug
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            categorySlug = parts[parts.length - 1] || '';
+            if (!categorySlug) { window.location.href = '/en/news'; return; }
+
+            // Fetch category by slug
+            try {
+                var res = await fetch(DIRECTUS_URL + '/items/categories?filter[slug][_eq]=' + categorySlug + '&limit=1');
+                var data = await res.json();
+                var cat = data.data && data.data[0];
+                if (!cat) {
+                    document.getElementById('category-title').textContent = 'Category not found';
+                    document.getElementById('blog-loading').classList.add('hidden');
+                    return;
+                }
+                categoryId = cat.id;
+                document.getElementById('category-title').textContent = 'News: ' + cat.name;
+                document.title = 'News: ' + cat.name + ' - Aragón te espera';
+
+                loadPosts();
+
+                var observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting && !isLoading && !allLoaded) loadPosts();
+                }, { rootMargin: '200px' });
+                observer.observe(document.getElementById('blog-loading'));
+            } catch (err) {
+                console.error('Error loading category:', err);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+</body>
+</html>

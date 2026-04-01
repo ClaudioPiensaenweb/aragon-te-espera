@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de privacidad - Aragón te espera</title>
+    <meta name="description" content="Política de privacidad - Aragón te espera - Experiencias turísticas en Aragón para touroperadores y agencias internacionales.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700&family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: { 'mh': '479px', 'tb': '768px', 'dk': '992px' },
+                extend: {
+                    colors: {
+                        accent: { warm1: '#FF3E00', warm2: '#FF6800', warm3: '#FFA000', warm4: '#FFCC00', cold1: '#001630', cold2: '#003C64', cold3: '#0081CE', cold4: '#36D1F4' },
+                        title: '#001630', text: '#2F3B4A', primary: '#FF6800'
+                    },
+                    fontFamily: { newsreader: ['"Newsreader"', 'serif'], jakarta: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    borderRadius: { 'base': '7px', 'btn': '50em' }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <script src="/js/dynamic-styles.js"></script>
+
+    <!-- Templates -->
+    <script src="/js/templates-es.js"></script>
+</head>
+<body class="antialiased interior blog-single">
+
+    <!-- HEADER -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[100]"></header>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-[140px] pb-[80px] dk:pt-[200px] dk:pb-[120px]">
+        <div class="container-boxed px-section legal-page-wrap">
+            <div class="max-w-[800px]">
+                <div class="legal-content" id="legal-content">
+                    <h1 class="titulo-1 mb-[30px]">Política de privacidad</h1>
+
+                    <p><strong>INFORMACIÓN BÁSICA SOBRE PROTECCIÓN DE DATOS:</strong></p>
+
+                    <table>
+                    <tbody>
+                    <tr><td><strong>Responsable</strong></td><td>{{razon_social}}</td></tr>
+                    <tr><td><strong>Finalidad</strong></td><td>El mantenimiento de la comunicación entre ambas partes, la resolución de dudas y consultas planteadas, y para facilitar el acceso a nuestros clientes y contactos a información referente a nuestros servicios.</td></tr>
+                    <tr><td><strong>Legitimación</strong></td><td>Consentimiento del interesado o de su representante legal al rellenar el formulario de la petición o consulta que el mismo realiza, o al contactar a través de cualquiera de los enlaces a correo electrónico de contacto facilitados en la página.</td></tr>
+                    <tr><td><strong>Destinatarios</strong></td><td>Los datos personales que usted ha facilitado tienen como único destinatario a {{razon_social}}. No se prevén cesiones de datos. No se prevé la transferencia internacional de sus datos personales.</td></tr>
+                    <tr><td><strong>Derechos</strong></td><td>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, como se explica en la información adicional, contactando con {{razon_social}} a través de {{correo_electronico}} o {{telefono}}.</td></tr>
+                    </tbody>
+                    </table>
+
+                    <p>El interesado reconoce la recepción de esta información procedente de parte de {{razon_social}}, y ha leído la información adicional sobre el tratamiento de sus datos personales.</p>
+
+                    <h2>Información adicional sobre protección de datos</h2>
+
+                    <p>¿Quién es el Responsable del tratamiento de sus datos personales?</p>
+                    <ul>
+                        <li><strong>Razón social:</strong> {{razon_social}}</li>
+                        <li><strong>CIF:</strong> {{cif}}</li>
+                        <li><strong>Dirección fiscal:</strong> {{direccion_fiscal}}</li>
+                        <li><strong>Teléfono:</strong> {{telefono}}</li>
+                        <li><strong>Correo electrónico:</strong> {{correo_electronico}}</li>
+                        <li><strong>Dominio:</strong> {{dominio}}</li>
+                    </ul>
+
+                    <h3>¿Con qué finalidad tratamos sus datos personales?</h3>
+                    <p>{{razon_social}} trata la información que nos facilitan las personas interesadas con el fin de mantener la comunicación entre ambas partes, la resolución de dudas y consultas planteadas.</p>
+
+                    <h3>¿Por cuánto tiempo conservaremos sus datos?</h3>
+                    <p>Los datos personales proporcionados se conservarán durante un tiempo prudencial desde la respuesta a su consulta o petición y se eliminarán cuando hayan dejado de ser necesarios para los fines que motivaron su recogida.</p>
+                    <p>Si el interesado ha autorizado el uso de su información de contacto para fines de recepción de información comercial, estos datos serán conservados mientras no se manifieste el deseo de exclusión de las listas de distribución comerciales.</p>
+
+                    <h3>¿Cuál es la legitimación para el tratamiento de sus datos personales?</h3>
+                    <p>La base legal para el tratamiento de sus datos personales es el consentimiento del interesado o de su representante legal al rellenar el formulario de la petición o consulta que el mismo realiza, o al contactar a través de cualquiera de los enlaces a correo electrónico de contacto facilitados en la página.</p>
+
+                    <h3>¿Se comunicarán sus datos a terceros?</h3>
+                    <p>No. Los datos que usted ha proporcionado tienen como destinatario a {{razon_social}}.</p>
+                    <p>No se prevé la transferencia internacional de sus datos personales.</p>
+                    <p>{{razon_social}} mantiene contratados servicios de hosting web y webmail con proveedores especializados. Ello supone que los datos de envíos telemáticos en algún momento se almacenarán en estos servidores de terceros con los que {{razon_social}} tiene firmados las correspondientes cláusulas de confidencialidad.</p>
+
+                    <h3>¿Cuáles son sus derechos cuando nos facilita sus datos?</h3>
+                    <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Además tendrán derecho a solicitar la limitación de su tratamiento y a oponerse a este y también tendrán derecho a la portabilidad de sus datos personales conforme a lo establecido en el Reglamento de Protección de Datos sancionado por la Unión Europea.</p>
+                    <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
+                    <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. {{razon_social}} dejará de tratar los datos, salvo por motivos legítimos o el ejercicio o la defensa de posibles reclamaciones.</p>
+                    <p>Para el ejercicio de los derechos establecidos por la ley y los cuáles han sido descritos anteriormente, hay que dirigirse por escrito a {{razon_social}}.</p>
+                    <p>Si el interesado lo solicita, {{razon_social}} le facilitará el formulario correspondiente para ejercer cualquiera de sus derechos.</p>
+                    <p>Además, aquellos interesados que deseen saber más información sobre sus derechos podrán obtenerla llamando a los teléfonos 901.100.099 / 91.266.35.17 de la Agencia Española de Protección de Datos o en su página web.</p>
+                    <p>Asimismo, todos aquellos interesados que no hayan obtenido satisfacción en el ejercicio de sus derechos podrán presentar una reclamación ante la Agencia Española de Protección de Datos, situada en la calle Jorge Juan, 6 28001-Madrid. www.agpd.es.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-section" class="relative w-full z-[0] bg-title"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+    (function() {
+        fetch('http://localhost:8055/items/empresa')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var e = data.data;
+                if (!e) return;
+                var el = document.getElementById('legal-content');
+                if (!el) return;
+                var html = el.innerHTML;
+                html = html.replace(/\{\{razon_social\}\}/g, e.razon_social || '');
+                html = html.replace(/\{\{cif\}\}/g, e.cif || '');
+                html = html.replace(/\{\{direccion_fiscal\}\}/g, e.direccion_fiscal || '');
+                html = html.replace(/\{\{provincia\}\}/g, e.provincia || '');
+                html = html.replace(/\{\{telefono\}\}/g, e.telefono || '');
+                html = html.replace(/\{\{correo_electronico\}\}/g, e.correo_electronico || '');
+                html = html.replace(/\{\{dominio\}\}/g, e.dominio || '');
+                html = html.replace(/\{\{nombre_empresa\}\}/g, e.nombre_empresa || '');
+                el.innerHTML = html;
+            })
+            .catch(function(err) { console.error('Error loading empresa data:', err); });
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+</body>
+</html>

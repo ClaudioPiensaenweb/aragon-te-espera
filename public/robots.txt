@@ -1,0 +1,14 @@
+# Aragon te espera - robots.txt
+
+User-agent: *
+Allow: /
+
+Disallow: /seo-dashboard
+Disallow: /en/cookie-policy
+Disallow: /en/privacy-policy
+Disallow: /politica-de-cookies
+Disallow: /politica-de-privacidad
+Disallow: /en/legal-notice
+Disallow: /aviso-legal
+
+Sitemap: https://aragonteespera.com/sitemap.xml

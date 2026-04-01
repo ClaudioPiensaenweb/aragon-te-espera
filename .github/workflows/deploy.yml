@@ -1,0 +1,83 @@
+name: Deploy Aragón Te Espera
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy-frontend:
+    name: Deploy Frontend (HTML estático)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy frontend via rsync
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avz --delete --exclude='.git' --exclude='node_modules' --exclude='.DS_Store'
+          path: public/
+          remote_path: /var/www/vhosts/${{ secrets.DOMAIN }}/httpdocs/
+          remote_host: ${{ secrets.HOST }}
+          remote_user: ${{ secrets.USER }}
+          remote_key_pass: ${{ secrets.SSH_PASSWORD }}
+          remote_key: ""
+
+      - name: Deploy frontend via SSH
+        if: failure()
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            echo "Frontend deploy via rsync fallback not available. Manual upload needed."
+
+  deploy-directus:
+    name: Deploy Directus CMS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: "ecosystem.config.cjs"
+          target: /var/www/vhosts/${{ secrets.DOMAIN }}/directus/
+
+      - name: Setup Directus on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            DIRECTUS_DIR="/var/www/vhosts/${{ secrets.DOMAIN }}/directus"
+
+            # Crear directorio si no existe (primer deploy)
+            mkdir -p "$DIRECTUS_DIR"
+            cd "$DIRECTUS_DIR"
+
+            # Si ya existe package.json, actualizar; si no, inicializar
+            if [ -f package.json ]; then
+              echo "Actualizando Directus..."
+              npm ci --production 2>/dev/null || npm install --production
+              npx directus database migrate:latest
+            else
+              echo "Primer deploy: inicializando Directus..."
+              npm init -y
+              npm install directus@latest
+              npx directus database install
+              npx directus database migrate:latest
+            fi
+
+            # Restart con PM2
+            pm2 describe aragon-directus > /dev/null 2>&1
+            if [ $? -eq 0 ]; then
+              pm2 restart aragon-directus
+            else
+              pm2 start ecosystem.config.cjs
+            fi
+            pm2 save

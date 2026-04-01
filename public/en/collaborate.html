@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborate - Aragón te espera</title>
+    <meta name="description" content="Collaborate - Aragón te espera - Tourism experiences in Aragón for tour operators and international agencies.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700&family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'mh': '479px',
+                    'tb': '768px',
+                    'dk': '992px',
+                },
+                extend: {
+                    colors: {
+                        accent: {
+                            warm1: '#FF3E00',
+                            warm2: '#FF6800',
+                            warm3: '#FFA000',
+                            warm4: '#FFCC00',
+                            cold1: '#001630',
+                            cold2: '#003C64',
+                            cold3: '#0081CE',
+                            cold4: '#36D1F4'
+                        },
+                        title: '#001630',
+                        text: '#2F3B4A',
+                        primary: '#FF6800'
+                    },
+                    fontFamily: {
+                        newsreader: ['"Newsreader"', 'serif'],
+                        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'base': '7px',
+                        'btn': '50em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <script src="/js/dynamic-styles.js"></script>
+
+    <!-- Templates -->
+    <script src="/js/templates-en.js"></script>
+</head>
+<body class="antialiased interior">
+
+    <!-- HEADER -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[100]"></header>
+
+    <!-- CABECERA PARALLAX -->
+    <div id="hero-section" class="relative w-full z-[0]">
+        <img src="/img/colabora-cabecera.jpg" alt="Collaborate with us" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-[rgb(13_24_41/72%)]"></div>
+
+        <div class="relative z-[10] w-full flex flex-col justify-center items-center text-center px-section container-boxed interior-hero">
+            <h1 class="titulo-hero !text-white fade-up">Collaborate</h1>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="relative z-[10] bg-white shadow-[0_-15px_40px_rgba(0,22,48,0.1)]">
+
+        <!-- BLOCK 1 – Collaborate with us -->
+        <section class="overflow-hidden">
+            <div class="block-full">
+                <div class="block-image order-2 dk:order-1" style="background-image: url('/img/colabora-01.jpg')" role="img" aria-label="Collaborate with Aragón te espera"></div>
+
+                <div class="block-text fade-in order-1 dk:order-2">
+                    <div class="block-text-inner">
+                    <h2 class="titulo-2">Collaborate with us</h2>
+                    <p class="texto-base">At Aragón te espera we believe the best experiences are built <strong>as a team</strong>.</p>
+                    <p class="texto-base">That is why we collaborate with tour operators, travel agencies and online platforms looking to add Aragón to their catalogue with guarantees of <strong>quality, authenticity</strong> and professional support.</p>
+                    <p class="texto-base">More than a supplier, we are a strategic <strong>local ally</strong>: we know the territory, speak your clients' language and adapt every programme to your brand's needs.</p>
+                    <a href="#footer-section" class="btn btn-outline mt-[10px] scroll-to-footer">I'm interested</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCK 2 – How we work -->
+        <section class="bg-[#F8F9FA] overflow-hidden">
+            <div class="block-full">
+                <div class="block-text fade-in order-1">
+                    <div class="block-text-inner">
+                    <h2 class="titulo-2">A partner who understands the sector's pace</h2>
+                    <p class="texto-base">We handle logistical coordination, bookings, guides and multilingual attention, so you can focus on the essentials: offering experiences that <strong>surprise and build loyalty</strong>.</p>
+                    <p class="texto-base">We work with clear, flexible and transparent agreements. We offer <strong>personalised budgets</strong>, informational materials adapted to the source market and constant support before, during and after the trip.</p>
+                    <p class="texto-base">Additionally, we can develop exclusive or themed proposals: cultural, nature, gastronomic or hybrid, combining several formats to maximise the <strong>value of each programme</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="block-image order-2" style="background-image: url('/img/colabora-02.jpg')" role="img" aria-label="Professional collaboration"></div>
+            </div>
+        </section>
+
+        <!-- BLOCK 3 – Closing -->
+        <section class="py-section px-section overflow-hidden">
+            <div class="container-boxed">
+                <div class="max-w-[800px] mx-auto text-center fade-in">
+                    <h2 class="titulo-2 mx-auto">Because when the visitor falls in love with the destination, everyone wins</h2>
+                    <p class="texto-base mx-auto mt-[20px]">Collaborating with Aragón te espera means accessing a partner who understands the sector's pace, respects response times and shares the same priority: the traveller's satisfaction.</p>
+                    <a href="#footer-section" class="btn btn-filled mt-[30px] scroll-to-footer">Let's talk</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PARALLAX -->
+    <footer id="footer-section" class="fixed bottom-0 left-0 w-full z-[0] opacity-0 pointer-events-none bg-title"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+</body>
+</html>

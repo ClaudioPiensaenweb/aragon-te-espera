@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso legal - Aragón te espera</title>
+    <meta name="description" content="Aviso legal - Aragón te espera - Experiencias turísticas en Aragón para touroperadores y agencias internacionales.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700&family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: { 'mh': '479px', 'tb': '768px', 'dk': '992px' },
+                extend: {
+                    colors: {
+                        accent: { warm1: '#FF3E00', warm2: '#FF6800', warm3: '#FFA000', warm4: '#FFCC00', cold1: '#001630', cold2: '#003C64', cold3: '#0081CE', cold4: '#36D1F4' },
+                        title: '#001630', text: '#2F3B4A', primary: '#FF6800'
+                    },
+                    fontFamily: { newsreader: ['"Newsreader"', 'serif'], jakarta: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    borderRadius: { 'base': '7px', 'btn': '50em' }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <script src="/js/dynamic-styles.js"></script>
+
+    <!-- Templates -->
+    <script src="/js/templates-es.js"></script>
+</head>
+<body class="antialiased interior blog-single">
+
+    <!-- HEADER -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[100]"></header>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-[140px] pb-[80px] dk:pt-[200px] dk:pb-[120px]">
+        <div class="container-boxed px-section legal-page-wrap">
+            <div class="max-w-[800px]">
+                <div class="legal-content" id="legal-content">
+                    <h1 class="titulo-1 mb-[30px]">Aviso legal</h1>
+
+                    <ul>
+                        <li><strong>Razón social:</strong> {{razon_social}}</li>
+                        <li><strong>CIF:</strong> {{cif}}</li>
+                        <li><strong>Dirección fiscal:</strong> {{direccion_fiscal}}</li>
+                        <li><strong>Teléfono:</strong> {{telefono}}</li>
+                        <li><strong>Correo electrónico:</strong> {{correo_electronico}}</li>
+                        <li><strong>Dominio:</strong> {{dominio}}</li>
+                    </ul>
+
+                    <h2>Propiedad intelectual y contenido</h2>
+                    <p>{{razon_social}} es la entidad propietaria de los nombres de dominio que identifican al sitio web y es titular del alojamiento de las páginas en el servidor oportuno, así como de las cuentas de correo electrónico que pertenezcan al dominio citado. Así mismo, es propietaria de los contenidos publicados, textos y fotografías mientras no se indique diferente propiedad.</p>
+                    <p>No está permitida la reproducción y/o publicación, total o parcial, del portal o sus contenidos, ni su tratamiento informático, su distribución, su difusión, ni su modificación, transformación, ni demás derechos reconocidos legalmente a sus titulares, sin el permiso previo, expreso y por escrito de los autores identificados o de {{razon_social}}.</p>
+
+                    <h2>Ley de la sociedad de la información y comercio electrónico</h2>
+                    <p>En cumplimiento de la Ley 34/2002 de 11 de Julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico, y la Ley 32/2003, de 3 de noviembre, General de Telecomunicaciones se informa a los usuarios que el envío de los formularios o correos electrónicos implicará el consentimiento expreso para recibir comunicaciones comerciales de {{razon_social}} mediante correo electrónico o cualquier otro medio electrónico de comunicación. No obstante, si no desea seguir recibiendo comunicaciones comerciales puede comunicarlo en {{telefono}} y {{correo_electronico}}.</p>
+
+                    <h2>Legislación aplicable</h2>
+                    <p>Toda la controversia surgida de la interpretación del presente "Aviso Legal", "Política de Privacidad" o "Política de cookies" se regirá por la legislación española, en concreto a la jurisdicción de los Juzgados y Tribunales de {{provincia}}.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-section" class="relative w-full z-[0] bg-title"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+    (function() {
+        fetch('http://localhost:8055/items/empresa')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var e = data.data;
+                if (!e) return;
+                var el = document.getElementById('legal-content');
+                if (!el) return;
+                var html = el.innerHTML;
+                html = html.replace(/\{\{razon_social\}\}/g, e.razon_social || '');
+                html = html.replace(/\{\{cif\}\}/g, e.cif || '');
+                html = html.replace(/\{\{direccion_fiscal\}\}/g, e.direccion_fiscal || '');
+                html = html.replace(/\{\{provincia\}\}/g, e.provincia || '');
+                html = html.replace(/\{\{telefono\}\}/g, e.telefono || '');
+                html = html.replace(/\{\{correo_electronico\}\}/g, e.correo_electronico || '');
+                html = html.replace(/\{\{dominio\}\}/g, e.dominio || '');
+                html = html.replace(/\{\{nombre_empresa\}\}/g, e.nombre_empresa || '');
+                el.innerHTML = html;
+            })
+            .catch(function(err) { console.error('Error loading empresa data:', err); });
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+</body>
+</html>

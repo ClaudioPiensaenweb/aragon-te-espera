@@ -1,0 +1,447 @@
+/* =============================================
+   ARAGÓN TE ESPERA – Custom CSS
+   ============================================= */
+
+/* Base */
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #2F3B4A;
+    background-color: white;
+    overflow-x: hidden;
+}
+
+/* ---- Tipografías ---- */
+.titulo-hero, .titulo-1, .titulo-2, .titulo-3, .titulo-4 {
+    font-family: "Newsreader", serif;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    line-height: 1.2em;
+    max-width: 850px;
+    color: #001630;
+    text-wrap: balance;
+}
+.titulo-hero { font-size: clamp(42px, 5vw, 60px); }
+.interior .titulo-hero { margin-bottom: 0.2em; }
+.titulo-1    { font-size: clamp(34px, 4vw, 48px); }
+.titulo-2    { font-size: clamp(28px, 3vw, 40px); }
+.titulo-3    { font-size: clamp(22px, 2.5vw, 27px); }
+.titulo-4    { font-size: clamp(18px, 2vw, 21px); }
+
+.texto-base {
+    font-size: 16px;
+    line-height: 1.8em;
+    max-width: 700px;
+}
+.texto-subtitulo {
+    text-wrap: pretty;
+}
+@media (min-width: 479px) {
+    .texto-subtitulo {
+        text-wrap: balance;
+    }
+}
+
+/* ---- Imágenes responsive ---- */
+main img {
+    max-height: 250px;
+}
+@media (min-width: 479px) {
+    main img {
+        max-height: 350px;
+    }
+}
+@media (min-width: 768px) {
+    main img {
+        max-height: 500px;
+    }
+}
+@media (min-width: 992px) {
+    main img {
+        max-height: none;
+    }
+}
+
+/* ---- Scroll indicator ---- */
+.scroll-wheel {
+    width: 2px;
+    height: 8px;
+    background: #fff;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: scrollWheel 1.5s infinite;
+}
+@keyframes scrollWheel {
+    0% { opacity: 1; top: 8px; }
+    100% { opacity: 0; top: 24px; }
+}
+
+/* ---- Anchor offset for fixed header ---- */
+:target {
+    scroll-margin-top: 120px;
+}
+
+/* ---- Estructura ---- */
+.px-section {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+@media (min-width: 479px) {
+    .px-section {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+.py-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+@media (min-width: 992px) {
+    .py-section {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+}
+
+.container-boxed {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.gap-responsive, .gap-responsive-2col {
+    gap: 20px;
+}
+@media (min-width: 479px) {
+    .gap-responsive, .gap-responsive-2col { gap: 30px; }
+}
+@media (min-width: 992px) {
+    .gap-responsive { gap: 50px; }
+    .gap-responsive-2col { gap: 90px; }
+}
+
+/* ---- Botones ---- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50em;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 12px 25px;
+    transition: all 0.3s;
+    width: max-content;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn-filled {
+    background-color: #FF6800;
+    color: white;
+}
+.btn-filled:hover {
+    background-color: #FF3E00;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+}
+.btn-outline {
+    border: 1px solid #FF6800;
+    color: #FF6800;
+    background-color: transparent;
+}
+.btn-outline:hover {
+    background-color: #FF6800;
+    color: white;
+}
+.block-text-inner .titulo-2,
+.block-text-inner .titulo-3 {
+    margin-bottom: 0;
+}
+.block-text-inner > .flex.flex-col {
+    width: 100%;
+}
+.block-text-inner .btn {
+    margin-top: 10px;
+}
+
+/* ---- Header ---- */
+header {
+    transition: all 0.5s;
+    background-color: transparent;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+header.scrolled {
+    background-color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+header.scrolled .nav-link {
+    color: #001630;
+}
+header.scrolled .nav-link:hover {
+    color: #FF6800;
+}
+header.scrolled .logo-img {
+    filter: none;
+}
+
+/* Blog single: header siempre positivo */
+.blog-single header,
+.blog-single header.scrolled {
+    background-color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.blog-single header {
+    box-shadow: none;
+}
+.blog-single header.scrolled {
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+.blog-single header .nav-link,
+.blog-single header.scrolled .nav-link {
+    color: #001630;
+}
+.blog-single header .nav-link:hover,
+.blog-single header.scrolled .nav-link:hover {
+    color: #FF6800;
+}
+.blog-single header .logo-img,
+.blog-single header.scrolled .logo-img {
+    filter: none;
+}
+
+/* ---- Lenis Smooth Scroll ---- */
+html.lenis, html.lenis body {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* ---- Cabecera interior ---- */
+.interior-hero {
+    padding-top: 120px;
+    padding-bottom: 60px;
+}
+@media (min-width: 479px) {
+    .interior-hero {
+        padding-top: 140px;
+        padding-bottom: 70px;
+    }
+}
+@media (min-width: 768px) {
+    .interior-hero {
+        padding-top: 160px;
+        padding-bottom: 80px;
+    }
+}
+@media (min-width: 992px) {
+    .interior-hero {
+        padding-top: 180px;
+        padding-bottom: 100px;
+    }
+}
+
+/* ---- Bloques full-width (texto + imagen) ---- */
+.block-full {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    gap: 0;
+}
+.block-full .block-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+}
+.block-full .block-text-inner {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.block-full .block-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@media (min-width: 479px) {
+    .block-full .block-image {
+        height: 350px;
+    }
+}
+@media (min-width: 768px) {
+    .block-full .block-image {
+        height: 500px;
+    }
+}
+@media (min-width: 992px) {
+    .block-full {
+        grid-template-columns: 1fr 1fr;
+    }
+    .block-full .block-text {
+        padding: 120px 0;
+    }
+    .block-full .block-image {
+        height: auto;
+        min-height: 600px;
+    }
+}
+
+/* ---- Acordeones ---- */
+@media (min-width: 992px) {
+    .interior .block-text:has(> .flex.flex-col > details) {
+        padding-top: 130px;
+    }
+}
+details > summary {
+    list-style: none;
+}
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ---- Legal pages ---- */
+.legal-content {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.8em;
+    color: #2F3B4A;
+}
+.legal-content h2 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #001630;
+    margin-top: 2.5em;
+    margin-bottom: 0.8em;
+}
+.legal-content h3 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #001630;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+}
+.legal-content p {
+    margin-bottom: 1em;
+}
+.legal-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5em;
+}
+.legal-content ul li {
+    padding: 4px 0;
+}
+.legal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+.legal-content table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+    font-size: 15px;
+}
+.legal-content table tr:first-child td {
+    border-top: 1px solid #e5e7eb;
+}
+.legal-content table td:first-child {
+    font-weight: 700;
+    color: #001630;
+    min-width: 150px;
+    width: 200px;
+}
+.legal-content a {
+    color: #FF6800;
+    text-decoration: underline;
+}
+.legal-content a:hover {
+    color: #FF3E00;
+}
+
+/* ---- Legal pages: centrar contenido ---- */
+.legal-page-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+/* ---- Blog/Noticias archive grid ---- */
+
+/* ---- Blog Post Content (WYSIWYG) ---- */
+.post-content {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.8em;
+    color: #2F3B4A;
+}
+.post-content h2 {
+    font-family: "Newsreader", serif;
+    font-weight: 700;
+    font-size: clamp(22px, 2.5vw, 27px);
+    line-height: 1.2em;
+    color: #001630;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+}
+.post-content h3 {
+    font-family: "Newsreader", serif;
+    font-weight: 700;
+    font-size: clamp(18px, 2vw, 21px);
+    line-height: 1.2em;
+    color: #001630;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+.post-content p {
+    margin-bottom: 1.2em;
+    max-width: 700px;
+}
+.post-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 7px;
+    margin: 1.5em 0;
+}
+.post-content ul, .post-content ol {
+    padding-left: 1.5em;
+    margin-bottom: 1.2em;
+}
+.post-content li {
+    margin-bottom: 0.5em;
+}
+.post-content blockquote {
+    border-left: 3px solid #FF6800;
+    padding-left: 1.2em;
+    margin: 1.5em 0;
+    font-style: italic;
+    color: #001630;
+}
+.post-content a {
+    color: #FF6800;
+    text-decoration: underline;
+}
+.post-content a:hover {
+    color: #FF3E00;
+}

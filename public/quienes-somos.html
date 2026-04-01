@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes somos - Aragón te espera</title>
+    <meta name="description" content="Quiénes somos - Aragón te espera - Experiencias turísticas en Aragón para touroperadores y agencias internacionales.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700&family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'mh': '479px',
+                    'tb': '768px',
+                    'dk': '992px',
+                },
+                extend: {
+                    colors: {
+                        accent: {
+                            warm1: '#FF3E00',
+                            warm2: '#FF6800',
+                            warm3: '#FFA000',
+                            warm4: '#FFCC00',
+                            cold1: '#001630',
+                            cold2: '#003C64',
+                            cold3: '#0081CE',
+                            cold4: '#36D1F4'
+                        },
+                        title: '#001630',
+                        text: '#2F3B4A',
+                        primary: '#FF6800'
+                    },
+                    fontFamily: {
+                        newsreader: ['"Newsreader"', 'serif'],
+                        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'base': '7px',
+                        'btn': '50em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <script src="/js/dynamic-styles.js"></script>
+
+    <!-- Templates -->
+    <script src="/js/templates-es.js"></script>
+</head>
+<body class="antialiased interior">
+
+    <!-- HEADER -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[100]"></header>
+
+    <!-- CABECERA PARALLAX -->
+    <div id="hero-section" class="relative w-full z-[0]">
+        <img src="/img/quienes-somos-cabecera.jpg" alt="Paisaje del Pirineo aragonés" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-[rgb(13_24_41/72%)]"></div>
+
+        <div class="relative z-[10] w-full flex flex-col justify-center items-center text-center px-section container-boxed interior-hero">
+            <h1 class="titulo-hero !text-white fade-up">Quiénes somos</h1>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="relative z-[10] bg-white shadow-[0_-15px_40px_rgba(0,22,48,0.1)]">
+
+        <!-- QUIÉNES SOMOS – Bloque 1 -->
+        <section class="overflow-hidden">
+            <div class="block-full">
+                <div class="block-image order-2 dk:order-1" style="background-image: url('/img/quienes-somos-01.jpg')" role="img" aria-label="Equipo de Aragón te espera"></div>
+
+                <div class="block-text fade-in order-1 dk:order-2">
+                    <div class="block-text-inner">
+                    <h2 class="titulo-2">Conectamos agencias internacionales con la esencia de Aragón</h2>
+                    <p class="texto-base">En Aragón te espera conectamos a touroperadores y agencias internacionales con la <strong>auténtica esencia</strong> de Aragón. Somos guías oficiales multilingües, con experiencia en el diseño de rutas culturales, naturales y gastronómicas adaptadas a la operativa profesional.</p>
+                    <a href="#footer-section" class="btn btn-outline mt-[10px] scroll-to-footer">Me interesa</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIÉNES SOMOS – Bloque 2 -->
+        <section class="bg-[#F8F9FA] overflow-hidden">
+            <div class="block-full">
+                <div class="block-text fade-in order-1">
+                    <div class="block-text-inner">
+                    <h2 class="titulo-2">Rigor, cercanía y atención continua</h2>
+                    <p class="texto-base">Conocemos el territorio, hablamos el idioma de cada viajero y entendemos las necesidades del sector. Ofrecemos <strong>itinerarios flexibles</strong>, coordinación directa y presupuestos a medida, siempre con rigor, cercanía y atención continua.</p>
+                    <p class="texto-base">Nuestro compromiso es simple: <strong>experiencias auténticas</strong>, seguras y fáciles de integrar en los programas de agencia.</p>
+                    </div>
+                </div>
+
+                <div class="block-image order-2" style="background-image: url('/img/quienes-somos-02.jpg')" role="img" aria-label="Paisaje de Aragón"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PARALLAX -->
+    <footer id="footer-section" class="fixed bottom-0 left-0 w-full z-[0] opacity-0 pointer-events-none bg-title"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+</body>
+</html>

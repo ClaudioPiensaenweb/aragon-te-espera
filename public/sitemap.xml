@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:ate="https://aragonteespera.com/ns">
+  <url>
+    <loc>https://aragonteespera.com/en</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <ate:type>page</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/about-us</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <ate:type>page</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/about-us"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/quienes-somos"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/collaborate</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <ate:type>page</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/collaborate"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/colabora"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/news</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <ate:type>page</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/services</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <ate:type>page</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/servicios"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <ate:type>page</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/colabora</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <ate:type>page</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/colabora"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/collaborate"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/noticias</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <ate:type>page</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/quienes-somos</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <ate:type>page</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/quienes-somos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/about-us"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/servicios</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <ate:type>page</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/servicios"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/services"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/news/albarracin-journey-middle-ages</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/albarracin-journey-middle-ages"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/albarracin-viaje-medievo"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/news/aljaferia-mudejar-legacy-zaragoza</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/aljaferia-mudejar-legacy-zaragoza"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/aljaferia-legado-mudejar-zaragoza"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/news/aragonese-gastronomy</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/aragonese-gastronomy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/gastronomia-aragonesa-ternasco-chiron"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/news/discover-aragonese-pyrenees</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/discover-aragonese-pyrenees"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/descubre-el-pirineo-aragones"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/news/festivals-traditions-aragon</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/festivals-traditions-aragon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/festivales-tradiciones-aragon"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/news/hiking-ordesa-monte-perdido</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/hiking-ordesa-monte-perdido"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/senderismo-ordesa-monte-perdido"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/news/mallos-riglos-climbing-nature</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/mallos-riglos-climbing-nature"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/mallos-de-riglos-escalada-naturaleza"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/news/most-beautiful-villages-aragon</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/most-beautiful-villages-aragon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/ruta-pueblos-bonitos-aragon"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/en/news/wine-tourism-somontano</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/wine-tourism-somontano"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/enoturismo-somontano"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/noticias/albarracin-viaje-medievo</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/albarracin-viaje-medievo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/albarracin-journey-middle-ages"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/noticias/aljaferia-legado-mudejar-zaragoza</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/aljaferia-legado-mudejar-zaragoza"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/aljaferia-mudejar-legacy-zaragoza"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/noticias/descubre-el-pirineo-aragones</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/descubre-el-pirineo-aragones"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/discover-aragonese-pyrenees"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/noticias/enoturismo-somontano</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/enoturismo-somontano"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/wine-tourism-somontano"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/noticias/festivales-tradiciones-aragon</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/festivales-tradiciones-aragon"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/festivals-traditions-aragon"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/noticias/gastronomia-aragonesa-ternasco-chiron</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/gastronomia-aragonesa-ternasco-chiron"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/aragonese-gastronomy"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/noticias/mallos-de-riglos-escalada-naturaleza</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/mallos-de-riglos-escalada-naturaleza"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/mallos-riglos-climbing-nature"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/noticias/ruta-pueblos-bonitos-aragon</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/ruta-pueblos-bonitos-aragon"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/most-beautiful-villages-aragon"/>
+  </url>
+  <url>
+    <loc>https://aragonteespera.com/noticias/senderismo-ordesa-monte-perdido</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <ate:type>post</ate:type>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aragonteespera.com/noticias/senderismo-ordesa-monte-perdido"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aragonteespera.com/en/news/hiking-ordesa-monte-perdido"/>
+  </url>
+</urlset>
