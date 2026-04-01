@@ -11,26 +11,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy frontend via rsync
-        uses: burnett01/rsync-deployments@7.0.1
+      - name: Upload frontend to server
+        uses: appleboy/scp-action@master
         with:
-          switches: -avz --delete --exclude='.git' --exclude='node_modules' --exclude='.DS_Store'
-          path: public/
-          remote_path: /var/www/vhosts/${{ secrets.DOMAIN }}/httpdocs/
-          remote_host: ${{ secrets.HOST }}
-          remote_user: ${{ secrets.USER }}
-          remote_key_pass: ${{ secrets.SSH_PASSWORD }}
-          remote_key: ""
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: "public/*"
+          target: /var/www/vhosts/${{ secrets.DOMAIN }}/httpdocs/
+          strip_components: 1
 
-      - name: Deploy frontend via SSH
-        if: failure()
+      - name: Set permissions
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            echo "Frontend deploy via rsync fallback not available. Manual upload needed."
+            chmod -R 755 /var/www/vhosts/${{ secrets.DOMAIN }}/httpdocs/
+            echo "Frontend deployed OK"
 
   deploy-directus:
     name: Deploy Directus CMS
@@ -38,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Upload files to server
+      - name: Upload Directus config
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -53,6 +52,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.SSH_PASSWORD }}
+          command_timeout: 15m
           script: |
             DIRECTUS_DIR="/var/www/vhosts/${{ secrets.DOMAIN }}/directus"
 
@@ -81,3 +81,4 @@ jobs:
               pm2 start ecosystem.config.cjs
             fi
             pm2 save
+            echo "Directus deployed OK"
