@@ -17,7 +17,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "public/*"
+          source: "public/*,public/.htaccess"
           target: /var/www/vhosts/${{ secrets.DOMAIN }}/httpdocs/
           strip_components: 1
 
