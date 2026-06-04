@@ -16,6 +16,13 @@ services:
       timeout: 5s
       retries: 10
 
+  fix-perms:
+    image: alpine:3.19
+    restart: "no"
+    volumes:
+      - directus_uploads:/directus/uploads
+    command: sh -c "chown -R 1000:1000 /directus/uploads && chmod -R 755 /directus/uploads && echo PERMS_OK"
+
   directus:
     build:
       context: .
@@ -24,6 +31,8 @@ services:
     depends_on:
       database:
         condition: service_healthy
+      fix-perms:
+        condition: service_completed_successfully
     environment:
       PORT: "8055"
       PUBLIC_URL: "https://admin.aragonteespera.com"
