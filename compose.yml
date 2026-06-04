@@ -65,6 +65,9 @@ services:
       - "traefik.http.routers.aragon-directus.entrypoints=websecure"
       - "traefik.http.routers.aragon-directus.tls.certresolver=letsencrypt"
       - "traefik.http.services.aragon-directus.loadbalancer.server.port=8055"
+    networks:
+      - default
+      - dokploy-network
 
   web:
     image: nginx:alpine
@@ -82,6 +85,9 @@ services:
       - "traefik.http.routers.aragon-web-www.tls.certresolver=letsencrypt"
       - "traefik.http.routers.aragon-web-www.service=aragon-web"
       - "traefik.http.services.aragon-web.loadbalancer.server.port=80"
+    networks:
+      - default
+      - dokploy-network
 
   robots-sync:
     image: node:22-alpine
@@ -97,3 +103,7 @@ services:
 volumes:
   pgdata:
   directus_uploads:
+
+networks:
+  dokploy-network:
+    external: true
