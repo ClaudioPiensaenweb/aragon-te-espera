@@ -1,7 +1,1 @@
 FROM directus/directus:11.5.0
-
-USER root
-RUN corepack enable
-USER node
-
-RUN pnpm add @directus-labs/seo-plugin@1.1.1
