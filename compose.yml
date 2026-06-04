@@ -27,12 +27,6 @@ services:
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_DATABASE: ${DB_DATABASE}
-      PLESK_HOST: ${PLESK_HOST}
-      PLESK_USER: ${PLESK_USER}
-      PLESK_PASS: ${PLESK_PASS}
-      PLESK_DB_USER: ${PLESK_DB_USER}
-      PLESK_DB_PASS: ${PLESK_DB_PASS}
-      PLESK_DB_NAME: ${PLESK_DB_NAME}
     volumes:
       - directus_uploads:/directus/uploads
       - ./scripts/migrate-to-dokploy.sh:/migrate.sh:ro
