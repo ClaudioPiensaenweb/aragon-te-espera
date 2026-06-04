@@ -17,6 +17,29 @@ services:
     networks:
       - internal
 
+  migrate:
+    image: alpine:3.19
+    restart: "no"
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+      PLESK_HOST: ${PLESK_HOST}
+      PLESK_USER: ${PLESK_USER}
+      PLESK_PASS: ${PLESK_PASS}
+      PLESK_DB_USER: ${PLESK_DB_USER}
+      PLESK_DB_PASS: ${PLESK_DB_PASS}
+      PLESK_DB_NAME: ${PLESK_DB_NAME}
+    volumes:
+      - directus_uploads:/directus/uploads
+      - ./scripts/migrate-to-dokploy.sh:/migrate.sh:ro
+    command: sh /migrate.sh
+    networks:
+      - internal
+
   directus:
     build:
       context: .
@@ -25,6 +48,8 @@ services:
     depends_on:
       database:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
     environment:
       PORT: "8055"
       PUBLIC_URL: "https://admin.aragonteespera.com"
