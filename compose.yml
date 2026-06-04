@@ -3,6 +3,8 @@ services:
   database:
     image: postgres:16-alpine
     restart: unless-stopped
+    ports:
+      - "15432:5432"
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -17,23 +19,6 @@ services:
     networks:
       - internal
 
-  migrate:
-    image: alpine:3.19
-    restart: "no"
-    depends_on:
-      database:
-        condition: service_healthy
-    environment:
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_DATABASE: ${DB_DATABASE}
-    volumes:
-      - directus_uploads:/directus/uploads
-      - ./scripts/migrate-to-dokploy.sh:/migrate.sh:ro
-    command: sh /migrate.sh
-    networks:
-      - internal
-
   directus:
     build:
       context: .
@@ -42,8 +27,6 @@ services:
     depends_on:
       database:
         condition: service_healthy
-      migrate:
-        condition: service_completed_successfully
     environment:
       PORT: "8055"
       PUBLIC_URL: "https://admin.aragonteespera.com"
