@@ -79,6 +79,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.aragon-directus.rule=Host(`admin.aragonteespera.com`)"
+      - "traefik.http.routers.aragon-directus.entrypoints=websecure"
       - "traefik.http.routers.aragon-directus.tls.certresolver=letsencrypt"
       - "traefik.http.services.aragon-directus.loadbalancer.server.port=8055"
     networks:
@@ -93,8 +94,13 @@ services:
       - ./public:/usr/share/nginx/html
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.aragon-web.rule=Host(`aragonteespera.com`) || Host(`www.aragonteespera.com`)"
+      - "traefik.http.routers.aragon-web.rule=Host(`aragonteespera.com`)"
+      - "traefik.http.routers.aragon-web.entrypoints=websecure"
       - "traefik.http.routers.aragon-web.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.aragon-web-www.rule=Host(`www.aragonteespera.com`)"
+      - "traefik.http.routers.aragon-web-www.entrypoints=websecure"
+      - "traefik.http.routers.aragon-web-www.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.aragon-web-www.service=aragon-web"
       - "traefik.http.services.aragon-web.loadbalancer.server.port=80"
     networks:
       - internal

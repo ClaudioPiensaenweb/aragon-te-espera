@@ -20,10 +20,12 @@ sshpass -p "$PLESK_PASS" ssh \
     -v ON_ERROR_STOP=0
 
 echo "=== [3/3] Migrando uploads ==="
-sshpass -p "$PLESK_PASS" rsync \
-  -az \
-  -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR" \
-  "$PLESK_USER@$PLESK_HOST:/var/www/vhosts/aragonteespera.com/directus/uploads/" \
+sshpass -p "$PLESK_PASS" scp \
+  -o StrictHostKeyChecking=no \
+  -o UserKnownHostsFile=/dev/null \
+  -o LogLevel=ERROR \
+  -r \
+  "$PLESK_USER@$PLESK_HOST:/var/www/vhosts/aragonteespera.com/directus/uploads/." \
   /directus/uploads/
 
 echo "=== MIGRACION COMPLETA ==="
