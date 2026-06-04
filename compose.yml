@@ -75,14 +75,10 @@ services:
       - ./public:/usr/share/nginx/html
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.aragon-web.rule=Host(`aragonteespera.com`)"
-      - "traefik.http.routers.aragon-web.entrypoints=websecure"
-      - "traefik.http.routers.aragon-web.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.aragon-web-www.rule=Host(`www.aragonteespera.com`)"
-      - "traefik.http.routers.aragon-web-www.entrypoints=websecure"
-      - "traefik.http.routers.aragon-web-www.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.aragon-web-www.service=aragon-web"
-      - "traefik.http.services.aragon-web.loadbalancer.server.port=80"
+      - "traefik.http.routers.aragonteespera-front.rule=Host(`aragonteespera.com`) || Host(`www.aragonteespera.com`)"
+      - "traefik.http.routers.aragonteespera-front.entrypoints=websecure"
+      - "traefik.http.routers.aragonteespera-front.tls.certresolver=letsencrypt"
+      - "traefik.http.services.aragonteespera-front.loadbalancer.server.port=80"
     networks:
       - default
       - dokploy-network
