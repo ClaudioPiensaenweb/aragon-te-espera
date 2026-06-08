@@ -68,11 +68,10 @@ services:
       - dokploy-network
 
   web:
-    image: nginx:alpine
+    build:
+      context: .
+      dockerfile: Dockerfile.web
     restart: unless-stopped
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./public:/usr/share/nginx/html
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.aragonteespera-front.rule=Host(`aragonteespera.com`) || Host(`www.aragonteespera.com`)"
