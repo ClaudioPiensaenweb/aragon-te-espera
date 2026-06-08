@@ -9,11 +9,8 @@ jobs:
     name: Redeploy en Dokploy
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Dokploy redeploy
+      - name: Trigger Dokploy webhook
         run: |
-          curl -s -X POST "http://185.14.58.119:3000/api/compose.redeploy" \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${{ secrets.DOKPLOY_TOKEN }}" \
-            -d '{"composeId":"ilK0PtYhYLW9d69dRFeBi"}' \
+          curl -s -X POST "http://185.14.58.119:3000/api/deploy/compose/vflH80Sa-81qS4zZe2Lhd" \
             --fail-with-body
-          echo "Redeploy solicitado OK"
+          echo "Deploy lanzado OK"
