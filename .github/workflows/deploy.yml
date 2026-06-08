@@ -5,80 +5,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy-frontend:
-    name: Deploy Frontend (HTML estático)
+  deploy:
+    name: Redeploy en Dokploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Upload frontend to server
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }}
-          source: "public/*,public/.htaccess"
-          target: /var/www/vhosts/${{ secrets.DOMAIN }}/httpdocs/
-          strip_components: 1
-
-      - name: Set permissions
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            chmod -R 755 /var/www/vhosts/${{ secrets.DOMAIN }}/httpdocs/
-            echo "Frontend deployed OK"
-
-  deploy-directus:
-    name: Deploy Directus CMS
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Upload Directus config
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }}
-          source: "ecosystem.config.cjs"
-          target: /var/www/vhosts/${{ secrets.DOMAIN }}/directus/
-
-      - name: Setup Directus on server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }}
-          command_timeout: 15m
-          script: |
-            DIRECTUS_DIR="/var/www/vhosts/${{ secrets.DOMAIN }}/directus"
-
-            # Crear directorio si no existe (primer deploy)
-            mkdir -p "$DIRECTUS_DIR"
-            cd "$DIRECTUS_DIR"
-
-            # Si ya existe package.json, actualizar; si no, inicializar
-            if [ -f package.json ]; then
-              echo "Actualizando Directus..."
-              npm ci --production 2>/dev/null || npm install --production
-              npx directus database migrate:latest
-            else
-              echo "Primer deploy: inicializando Directus..."
-              npm init -y
-              npm install directus@latest
-              npx directus database install
-              npx directus database migrate:latest
-            fi
-
-            # Restart con PM2
-            pm2 describe aragon-directus > /dev/null 2>&1
-            if [ $? -eq 0 ]; then
-              pm2 restart aragon-directus
-            else
-              pm2 start ecosystem.config.cjs
-            fi
-            pm2 save
-            echo "Directus deployed OK"
+      - name: Trigger Dokploy redeploy
+        run: |
+          curl -s -X POST "http://185.14.58.119:3000/api/compose.redeploy" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.DOKPLOY_TOKEN }}" \
+            -d '{"composeId":"ilK0PtYhYLW9d69dRFeBi"}' \
+            --fail-with-body
+          echo "Redeploy solicitado OK"
