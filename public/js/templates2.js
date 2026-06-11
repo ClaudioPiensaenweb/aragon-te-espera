@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (emailLink) emailLink.href = 'mailto:' + (e.correo_electronico || '');
             if (phoneEl) phoneEl.textContent = e.telefono || '';
             if (phoneLink) phoneLink.href = 'tel:' + (e.telefono || '').replace(/\s/g, '');
-            if (addressEl) addressEl.textContent = e.direccion_fiscal || '';
+            if (addressEl) addressEl.innerHTML = e.direccion_fiscal || '';
             var addressLink = document.getElementById('footer-address-link');
             if (addressLink && e.enlace_google_maps) addressLink.href = e.enlace_google_maps;
         })
