@@ -29,6 +29,7 @@
     <meta name="twitter:title" content="Noticias - Aragón te espera">
     <meta name="twitter:description" content="Aragón te espera - Noticias sobre turismo en Aragón para agencias internacionales.">
     <meta name="twitter:image" content="https://aragonteespera.com/img/cabecera-02.jpg">
+    <meta name="description" content="Aragón te espera - Noticias sobre turismo en Aragón para agencias internacionales.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -187,7 +188,8 @@
 
                 // Update page title
                 document.title = post.title + ' - Aragón te espera';
-                document.querySelector('meta[name="description"]').setAttribute('content', post.title);
+                var metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc) metaDesc.setAttribute('content', plainText.substring(0, 160));
 
                 // Article title
                 document.getElementById('post-title').textContent = post.title;
