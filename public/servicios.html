@@ -65,13 +65,148 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Servicios - Aragón te espera",
-      "description": "Diseñamos experiencias turísticas pensadas para integrarse fácilmente en los programas de touroperadores, agencias receptivas y plataformas internacionales.",
-      "publisher": {
-        "@type": "TravelAgency",
-        "name": "Aragón te espera"
-      }
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://aragonteespera.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Servicios",
+          "item": "https://aragonteespera.com/servicios"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://aragonteespera.com/servicios#visitas-culturales",
+          "serviceType": "Visitas culturales guiadas",
+          "name": "Visitas Culturales en Aragón",
+          "description": "Visitas guiadas a monumentos, museos y centros históricos de Aragón con guías oficiales multilingües. Cobertura en las principales ciudades y pueblos con encanto de la comunidad.",
+          "url": "https://aragonteespera.com/servicios",
+          "provider": {
+            "@type": "TravelAgency",
+            "name": "Aragón te espera",
+            "url": "https://aragonteespera.com"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Aragón",
+            "containedInPlace": { "@type": "Country", "name": "España" }
+          },
+          "availableLanguage": [
+            { "@type": "Language", "name": "Spanish" },
+            { "@type": "Language", "name": "English" },
+            { "@type": "Language", "name": "French" },
+            { "@type": "Language", "name": "German" },
+            { "@type": "Language", "name": "Italian" },
+            { "@type": "Language", "name": "Portuguese" }
+          ],
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Touroperadores y agencias internacionales"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://aragonteespera.com/servicios#naturaleza-montana",
+          "serviceType": "Turismo de naturaleza y montaña",
+          "name": "Naturaleza y Montaña en Aragón",
+          "description": "Senderismo y actividades al aire libre en los paisajes del Pirineo aragonés, el Parque Nacional de Ordesa y otras áreas naturales de Aragón con guías especializados.",
+          "url": "https://aragonteespera.com/servicios",
+          "provider": {
+            "@type": "TravelAgency",
+            "name": "Aragón te espera",
+            "url": "https://aragonteespera.com"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Aragón",
+            "containedInPlace": { "@type": "Country", "name": "España" }
+          },
+          "availableLanguage": [
+            { "@type": "Language", "name": "Spanish" },
+            { "@type": "Language", "name": "English" },
+            { "@type": "Language", "name": "French" },
+            { "@type": "Language", "name": "German" },
+            { "@type": "Language", "name": "Italian" },
+            { "@type": "Language", "name": "Portuguese" }
+          ],
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Touroperadores y agencias internacionales"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://aragonteespera.com/servicios#vino-gastronomia",
+          "serviceType": "Rutas de vino y gastronomía",
+          "name": "Vino y Gastronomía en Aragón",
+          "description": "Rutas enológicas por las denominaciones de origen aragonesas — Somontano, Cariñena y Campo de Borja — combinadas con experiencias gastronómicas de la cocina tradicional aragonesa.",
+          "url": "https://aragonteespera.com/servicios",
+          "provider": {
+            "@type": "TravelAgency",
+            "name": "Aragón te espera",
+            "url": "https://aragonteespera.com"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Aragón",
+            "containedInPlace": { "@type": "Country", "name": "España" }
+          },
+          "availableLanguage": [
+            { "@type": "Language", "name": "Spanish" },
+            { "@type": "Language", "name": "English" },
+            { "@type": "Language", "name": "French" },
+            { "@type": "Language", "name": "German" },
+            { "@type": "Language", "name": "Italian" },
+            { "@type": "Language", "name": "Portuguese" }
+          ],
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Touroperadores y agencias internacionales"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://aragonteespera.com/servicios#gestion-integral",
+          "serviceType": "Gestión logística de grupos turísticos",
+          "name": "Gestión Integral de Grupos en Aragón",
+          "description": "Coordinación de grupos, reservas en monumentos, presupuestos personalizados y atención multilingüe antes, durante y después del viaje. Socio local estratégico para touroperadores.",
+          "url": "https://aragonteespera.com/servicios",
+          "provider": {
+            "@type": "TravelAgency",
+            "name": "Aragón te espera",
+            "url": "https://aragonteespera.com"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Aragón",
+            "containedInPlace": { "@type": "Country", "name": "España" }
+          },
+          "availableLanguage": [
+            { "@type": "Language", "name": "Spanish" },
+            { "@type": "Language", "name": "English" },
+            { "@type": "Language", "name": "French" },
+            { "@type": "Language", "name": "German" },
+            { "@type": "Language", "name": "Italian" },
+            { "@type": "Language", "name": "Portuguese" }
+          ],
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Touroperadores y agencias internacionales"
+          }
+        }
+      ]
     }
     </script>
 

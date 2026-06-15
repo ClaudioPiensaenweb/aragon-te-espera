@@ -199,6 +199,60 @@
                 // Content
                 document.getElementById('post-content').innerHTML = post.content || '';
 
+                // JSON-LD BlogPosting schema
+                var tmp2 = document.createElement('div');
+                tmp2.innerHTML = post.content || '';
+                var wordCount = (tmp2.textContent || '').trim().split(/\s+/).filter(Boolean).length;
+                var schema = {
+                    '@context': 'https://schema.org',
+                    '@type': 'BlogPosting',
+                    'headline': post.title,
+                    'description': plainText.substring(0, 160),
+                    'url': window.location.href,
+                    'mainEntityOfPage': window.location.href,
+                    'datePublished': post.date_published || '',
+                    'dateModified': post.date_updated || post.date_published || '',
+                    'inLanguage': 'es',
+                    'wordCount': wordCount,
+                    'publisher': {
+                        '@type': 'TravelAgency',
+                        'name': 'Aragón te espera',
+                        'url': 'https://aragonteespera.com',
+                        'logo': {
+                            '@type': 'ImageObject',
+                            'url': 'https://aragonteespera.com/img/logo-aragon-te-espera.svg'
+                        }
+                    },
+                    'speakable': {
+                        '@type': 'SpeakableSpecification',
+                        'cssSelector': ['#post-title', '#post-excerpt']
+                    }
+                };
+                if (post.featured_image && post.featured_image.id) {
+                    schema['image'] = {
+                        '@type': 'ImageObject',
+                        'url': DIRECTUS_URL + '/assets/' + post.featured_image.id + '?width=1200&fit=cover'
+                    };
+                }
+                if (post.categories && post.categories.length) {
+                    var cats = post.categories.map(function(c) { return c.categories_id ? c.categories_id.name : ''; }).filter(Boolean);
+                    if (cats.length) schema['articleSection'] = cats[0];
+                    if (cats.length) schema['keywords'] = cats.join(', ');
+                }
+                var breadcrumb = {
+                    '@context': 'https://schema.org',
+                    '@type': 'BreadcrumbList',
+                    'itemListElement': [
+                        { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://aragonteespera.com' },
+                        { '@type': 'ListItem', 'position': 2, 'name': 'Noticias', 'item': 'https://aragonteespera.com/noticias' },
+                        { '@type': 'ListItem', 'position': 3, 'name': post.title, 'item': window.location.href }
+                    ]
+                };
+                var scriptEl = document.createElement('script');
+                scriptEl.type = 'application/ld+json';
+                scriptEl.textContent = JSON.stringify([schema, breadcrumb]);
+                document.head.appendChild(scriptEl);
+
                 // Load sidebar
                 loadSidebar(post);
             } catch (err) {
