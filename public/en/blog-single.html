@@ -14,6 +14,22 @@
     <link rel="alternate" hreflang="en" id="hreflang-en" href="https://aragonteespera.com/en/news">
     <link rel="alternate" hreflang="x-default" href="https://aragonteespera.com/">
 
+    <!-- Open Graph / Social -->
+    <!-- Note: og:title, og:description, og:url, og:image updated at runtime by JS in loadPost() -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Aragón te espera">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://aragonteespera.com/en/news">
+    <meta property="og:title" content="News - Aragón te espera">
+    <meta property="og:description" content="Aragón te espera - News about tourism in Aragón for international agencies.">
+    <meta property="og:image" content="https://aragonteespera.com/img/cabecera-02.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="News - Aragón te espera">
+    <meta name="twitter:description" content="Aragón te espera - News about tourism in Aragón for international agencies.">
+    <meta name="twitter:image" content="https://aragonteespera.com/img/cabecera-02.jpg">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -256,6 +272,25 @@
                 scriptEl.type = 'application/ld+json';
                 scriptEl.textContent = JSON.stringify([schema, breadcrumb]);
                 document.head.appendChild(scriptEl);
+
+                // Update Open Graph meta tags with real article data
+                var ogImage = (post.featured_image && post.featured_image.id)
+                    ? DIRECTUS_URL + '/assets/' + post.featured_image.id + '?width=1200&fit=cover'
+                    : 'https://aragonteespera.com/img/cabecera-02.jpg';
+                var ogDesc = plainText.substring(0, 160);
+                var ogUrl = window.location.href;
+                function setMeta(sel, attr, val) {
+                    var el = document.querySelector(sel);
+                    if (el) el.setAttribute(attr, val);
+                }
+                setMeta('meta[property="og:title"]', 'content', post.title + ' - Aragón te espera');
+                setMeta('meta[property="og:description"]', 'content', ogDesc);
+                setMeta('meta[property="og:url"]', 'content', ogUrl);
+                setMeta('meta[property="og:image"]', 'content', ogImage);
+                setMeta('meta[property="og:type"]', 'content', 'article');
+                setMeta('meta[name="twitter:title"]', 'content', post.title + ' - Aragón te espera');
+                setMeta('meta[name="twitter:description"]', 'content', ogDesc);
+                setMeta('meta[name="twitter:image"]', 'content', ogImage);
 
                 // Load sidebar
                 loadSidebar(post);
