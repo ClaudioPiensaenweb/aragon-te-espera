@@ -188,8 +188,6 @@
 
                 // Update page title
                 document.title = post.title + ' - Aragón te espera';
-                var metaDesc = document.querySelector('meta[name="description"]');
-                if (metaDesc) metaDesc.setAttribute('content', plainText.substring(0, 160));
 
                 // Article title
                 document.getElementById('post-title').textContent = post.title;
@@ -293,6 +291,7 @@
                 setMeta('meta[name="twitter:title"]', 'content', post.title + ' - Aragón te espera');
                 setMeta('meta[name="twitter:description"]', 'content', ogDesc);
                 setMeta('meta[name="twitter:image"]', 'content', ogImage);
+                setMeta('meta[name="description"]', 'content', ogDesc);
 
                 // Load sidebar
                 loadSidebar(post);
