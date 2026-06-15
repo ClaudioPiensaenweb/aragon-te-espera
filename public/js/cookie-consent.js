@@ -12,7 +12,7 @@
         es: {
             title: 'Utilizamos cookies',
             desc: 'Usamos cookies propias y de terceros para analizar el tráfico y mejorar nuestros servicios. Puedes aceptar todas, rechazarlas o configurarlas.',
-            accept: 'Aceptar todas',
+            accept: 'Aceptar',
             reject: 'Rechazar',
             config: 'Configurar',
             save: 'Guardar preferencias',
@@ -30,7 +30,7 @@
         en: {
             title: 'We use cookies',
             desc: 'We use our own and third-party cookies to analyse traffic and improve our services. You can accept all, reject or configure them.',
-            accept: 'Accept all',
+            accept: 'Accept',
             reject: 'Reject',
             config: 'Configure',
             save: 'Save preferences',
