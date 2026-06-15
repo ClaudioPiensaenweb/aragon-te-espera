@@ -1,15 +1,58 @@
 {
+  "plugin": "piensa",
+  "version": "1.0.0",
+  "currentMode": null,
+  "erp": {
+    "url": "https://ssot.piensaenweb.com/api",
+    "token": ""
+  },
+  "workflow": {
+    "research": false,
+    "reviewer": true,
+    "autoEstado": true,
+    "hookContextMonitor": true,
+    "hookCheckUpdate": true,
+    "modelEscalation": true
+  },
+  "models": {
+    "default": "sonnet",
+    "escalated": "opus",
+    "escalation_criteria": {
+      "sizing_threshold": ["L", "XL"],
+      "retry_threshold": 3,
+      "files_threshold": 5
+    }
+  },
+  "git": {
+    "commit_docs": true,
+    "branch_strategy": "github-flow",
+    "auto_stage_docs": true,
+    "conventional_commits": true,
+    "commit_types": ["feat", "fix", "docs", "style", "refactor", "chore"],
+    "commit_language": "es"
+  },
   "proyecto": {
-    "nombre": "Aragón Te Espera",
-    "stack": "html-estatico + directus",
-    "descripcion": "Portal turístico de Aragón"
+    "nombre": "Aragón te espera",
+    "tipo": "Landing / sitio estático",
+    "cliente": "Aragón te espera",
+    "descripcion": "Portal turístico B2B de Aragón para touroperadores y agencias internacionales. HTML estático con CMS headless Directus. Bilingüe ES/EN.",
+    "stack": {
+      "frontend": "HTML estático + vanilla JS",
+      "backend": "Directus 11 (headless CMS)",
+      "db": "PostgreSQL (via Directus)",
+      "testing": "",
+      "runtime": "Docker + Nginx",
+      "extras": "Tailwind CSS CDN, GSAP, Lenis, Lucide icons"
+    },
+    "repo": "https://github.com/AndresBernad/aragon-te-espera",
+    "path": "C:/Users/PC/Documents/Proyectos/Aragón Te Espera/aragon-te-espera"
   },
   "deploy": {
     "dominio": "aragonteespera.com",
     "staging_dominio": null,
-    "estrategia": "A+D",
+    "estrategia": "Docker + Dokploy",
     "ci_configured": true,
-    "auth_method": "ssh_key",
+    "auth_method": "webhook_dokploy",
     "admin_url": "https://admin.aragonteespera.com",
     "entornos": {
       "produccion": { "rama": "main", "auto": true }
@@ -17,14 +60,36 @@
     "servicios": {
       "frontend": {
         "tipo": "estatico",
-        "destino": "/var/www/vhosts/aragonteespera.com/httpdocs/"
+        "destino": "public/"
       },
       "directus": {
         "tipo": "nodejs",
         "puerto": 8056,
-        "manager": "pm2",
-        "destino": "/var/www/vhosts/aragonteespera.com/directus/"
+        "manager": "docker",
+        "admin_url": "https://admin.aragonteespera.com"
       }
     }
+  },
+  "skills": ["geo-schema", "geo-audit"],
+  "skillsConfig": {
+    "timeout": 3600,
+    "retryOnFailure": true,
+    "maxRetries": 1
+  },
+  "guardrails": {
+    "enabled": true,
+    "protect_main": true,
+    "suggest_branch_naming": true,
+    "warn_git_add_all": true
+  },
+  "team": {
+    "experience_level": "senior",
+    "first_run": false
+  },
+  "paths": {
+    "briefing": ".planning/BRIEFING.md",
+    "planificacion": ".planning/ROADMAP.md",
+    "estado": ".planning/estado.md",
+    "config": ".planning/config.json"
   }
 }
