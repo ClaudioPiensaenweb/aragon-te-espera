@@ -1,0 +1,34 @@
+# Aragón te espera
+# https://aragonteespera.com
+
+## About
+Aragón te espera es una agencia receptiva B2B especializada en turismo en Aragón, España.
+Conecta touroperadores y agencias internacionales con la oferta turística de Aragón:
+visitas culturales, naturaleza y montaña (Pirineos, Ordesa, Mallos de Riglos),
+gastronomía y vino (DO Somontano, DO Cariñena) y gestión logística de grupos.
+Guías oficiales multilingües: español, inglés, francés, alemán, italiano y portugués.
+
+## Services
+- Visitas culturales: reservas de monumentos y museos, coordinación de accesos
+- Naturaleza y montaña: excursiones de senderismo, guías especializados, opciones multilingües
+- Gastronomía y vino: rutas enológicas por las DOs de Aragón, visitas a bodegas
+- Turismo activo: actividades al aire libre con soporte completo
+- Gestión de grupos: logística, transporte, coordinación integral para grupos internacionales
+
+## Audience
+Touroperadores internacionales, agencias de viajes B2B, profesionales del sector turístico
+que buscan destinos en Aragón (España).
+
+## Content
+- Información de servicios turísticos receptivos en Aragón
+- Blog de noticias y artículos sobre destinos y experiencias en Aragón
+- Disponible en español (/servicios, /noticias) e inglés (/en/services, /en/news)
+
+## Contact
+https://aragonteespera.com/#footer-section
+
+## Sitemap
+https://aragonteespera.com/sitemap.xml
+
+## Language
+es, en
