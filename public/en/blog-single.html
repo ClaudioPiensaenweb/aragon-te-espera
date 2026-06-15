@@ -29,6 +29,7 @@
     <meta name="twitter:title" content="News - Aragón te espera">
     <meta name="twitter:description" content="Aragón te espera - News about tourism in Aragón for international agencies.">
     <meta name="twitter:image" content="https://aragonteespera.com/img/cabecera-02.jpg">
+    <meta name="description" content="Aragón te espera - News about tourism in Aragón for international agencies.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -187,7 +188,6 @@
 
                 // Update page title
                 document.title = post.title + ' - Aragón te espera';
-                document.querySelector('meta[name="description"]').setAttribute('content', post.title);
 
                 // Article title
                 document.getElementById('post-title').textContent = post.title;
@@ -291,6 +291,7 @@
                 setMeta('meta[name="twitter:title"]', 'content', post.title + ' - Aragón te espera');
                 setMeta('meta[name="twitter:description"]', 'content', ogDesc);
                 setMeta('meta[name="twitter:image"]', 'content', ogImage);
+                setMeta('meta[name="description"]', 'content', ogDesc);
 
                 // Load sidebar
                 loadSidebar(post);
