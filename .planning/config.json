@@ -78,7 +78,7 @@
   },
   "guardrails": {
     "enabled": true,
-    "protect_main": true,
+    "protect_main": false,
     "suggest_branch_naming": true,
     "warn_git_add_all": true
   },
